@@ -1,7 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState } from "react";
 
-function App() {
+function App(props) {
+  const [apiResponse, setApiResponse] = useState("");
+  const callAPI = () => {
+    fetch("http://localhost:9000/testAPI")
+      .then((res) => res.text())
+      .then((res) => setApiResponse(res))
+      .catch((err) => err);
+  };
+  callAPI();
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +27,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <p>{apiResponse}</p>
     </div>
   );
 }
