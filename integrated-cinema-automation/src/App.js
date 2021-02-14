@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Route exact path="/" component={Home}></Route>
     </div>
   );
