@@ -1,33 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
+import { Route } from "react-router-dom";
+import Home from "./pages/Home";
 
-function App(props) {
-  const [apiResponse, setApiResponse] = useState("");
-  const callAPI = () => {
-    fetch("http://localhost:9000/testAPI")
-      .then((res) => res.text())
-      .then((res) => setApiResponse(res))
-      .catch((err) => err);
-  };
-  callAPI();
+function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <p>{apiResponse}</p>
+      <Route exact path="/" component={Home}></Route>
     </div>
   );
 }
