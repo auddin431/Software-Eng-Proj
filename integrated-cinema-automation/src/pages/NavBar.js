@@ -7,11 +7,11 @@ import "../App.css";
 const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Integrated Cinema Automation</Navbar.Brand>
+      <Navbar.Brand href="/">Integrated Cinema Automation</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto ml-auto">
-          <Nav.Link href="#movies">Movies</Nav.Link>
+          <Nav.Link href="/MovieSelection">Movies</Nav.Link>
           <Nav.Link href="#menu">Dine-In Menu</Nav.Link>
           <Nav.Link href="#tickets">My Tickets</Nav.Link>
         </Nav>
