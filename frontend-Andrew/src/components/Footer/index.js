@@ -10,10 +10,10 @@ const Footer = () => {
                     <SocialMediaWrap>
                         <SocialLogo to="/">ICA</SocialLogo>
                         <SocialIcons>
-                            <SocialIconLink href="/" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
+                            <SocialIconLink href="https://www.facebook.com/" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
                                 <FaFacebook />
                             </SocialIconLink>
-                            <SocialIconLink href="/" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+                            <SocialIconLink href="https://www.instagram.com/" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
                                 <FaInstagram />
                             </SocialIconLink>
                             <SocialIconLink href="https://twitter.com/" target="_blank" aria-label="Twitter" rel="noopener noreferrer">
