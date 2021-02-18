@@ -1,8 +1,8 @@
 import "./App.css";
 import React from "react";
 import { Route } from "react-router-dom";
-import Home from "./pages/Home";
-import MovieSelection from "./pages/MovieSelection";
+import Home from "./components/pages/Home";
+import MovieSelection from "./components/pages/MovieSelection";
 
 function App() {
   return (
