@@ -7,7 +7,7 @@ function MovieCards() {
         <div className="cards">
             <div className="cards__container">
                 <div className="cards__wrapper">
-                    <ul className="cards__items">
+                    <div className="cards__items">
                         <MovieCardItem
                             src="/images/tt1950186.jpeg"
                             text="Ford v Ferrari"
@@ -33,9 +33,7 @@ function MovieCards() {
                             text="John Wick 3: Parabellum"
                             path="/MovieSelection"
                         />
-                    </ul>
-                    <ul className="cards__items">
-                    <MovieCardItem
+                        <MovieCardItem
                             src="/images/tt0275847.jpeg"
                             text="Lilo & Stitch"
                             path="/MovieSelection"
@@ -45,7 +43,7 @@ function MovieCards() {
                             text="Cars 3"
                             path="/MovieSelection"
                         />
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
