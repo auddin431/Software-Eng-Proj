@@ -7,10 +7,8 @@ import './MovieSelection.css';
 const MovieSelection = () => {
     return (
         <>
-            <div className="MovieSelection">
-                <NavBar />
-                <MovieCards />
-            </div>
+            <NavBar />
+            <MovieCards />
         </>
     );
 }
