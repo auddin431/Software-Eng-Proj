@@ -3,7 +3,7 @@ import {BrowserRouter as Router } from 'react-router-dom';
 import { GlobalStyle } from './globalStyles';
 import Hero from './components/Hero';
 import Products from './components/Products';
-import { productData, productDataTwo } from './components/Products/data';
+import { productData, productDataTwo, productDataThree } from './components/Products/data';
 import Feature from './components/Feature';
 import Footer from './components/Footer';
 
@@ -16,6 +16,7 @@ function App(){
             <Products heading='Choose your Appetizer' data={productData}/>
             <Feature />
             <Products heading='Choose your Entree' data={productDataTwo}/>
+            <Products heading='Choose your Entree' data={productDataThree}/>
             <Footer />
         </Router>
     );

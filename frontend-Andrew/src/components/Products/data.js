@@ -4,6 +4,9 @@ import product3 from '../../images/mozzarella-sticks.jpg'
 import product4 from '../../images/hotdog.jpg'
 import product5 from '../../images/spaghetti-meatballs.jpg'
 import product6 from '../../images/blt.jpg'
+import product7 from '../../images/oreo-milkshake.jpg'
+import product8 from '../../images/bubbletea.jpg'
+import product9 from '../../images/cup-of-dirt.jpg'
 
 //this is an array of objects. each object in the {}
 export const productData = [
@@ -56,6 +59,33 @@ export const productDataTwo = [
         name: 'BLT Sandwich',
         desc: 'Made with bacon, lettuce, and tomatoes between two thick slices of toasted bread, this sandwich is a simple dinner and an all around favorite!',
         price: '$5.99',
+        button: 'Add to Cart'
+    } 
+];
+
+export const productDataThree = [
+    {
+        img: product7,
+        alt: 'Dessert',
+        name: 'Oreo Milkshake',
+        desc: 'Ice cream, milk, chocolate sauce, and Oreos blended together, topped with whipped cream',
+        price: '$4.99',
+        button: 'Add to Cart'
+    },
+    {
+        img: product8,
+        alt: 'Dessert',
+        name: 'Bubble Tea',
+        desc: "Who doesn't like Bubble Tea?",
+        price: '$5.99',
+        button: 'Add to Cart'
+    }, 
+    {
+        img: product9,
+        alt: 'Dessert',
+        name: 'Cup of Dirt',
+        desc: 'The nostalgia is real with this man!',
+        price: '$2.99',
         button: 'Add to Cart'
     } 
 ];
