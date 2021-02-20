@@ -12,14 +12,15 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import './SignIn.css';
 
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      {'Not Copyright © '}
+      <Link color="inherit" href="/">
+        ICA
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -88,11 +89,12 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
-            type="submit"
+            //type="submit"
+            href="/"
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            //className={classes.submit}
           >
             Sign In
           </Button>
@@ -103,7 +105,7 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/SignUp" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

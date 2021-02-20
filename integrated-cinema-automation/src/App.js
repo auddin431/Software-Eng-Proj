@@ -11,6 +11,7 @@ function App() {
   return (
     <div>
       <Route exact path="/SignIn" component={SignIn}></Route>
+      <Route exact path="/SignUp" component={SignUp}></Route>
       <Route exact path="/" component={Home}></Route>
       <Route exact path="/MovieSelection" component={MovieSelection}></Route>
     </div>
