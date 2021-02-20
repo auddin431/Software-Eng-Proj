@@ -4,11 +4,29 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
+const dark = createMuiTheme({
+  palette: {
+    type: "dark",
+  }
+});
+
+const cinema = createMuiTheme({
+  palette: {
+    type: "dark",
+    secondary: {
+      main: '#282C34',
+    },
+  },
+});
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <ThemeProvider theme = {cinema}> 
       <App />
+    </ThemeProvider> 
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
