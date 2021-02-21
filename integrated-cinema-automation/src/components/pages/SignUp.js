@@ -44,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  large: {
+    width: theme.spacing(15),
+    height: theme.spacing(15),
+  },
 }));
 
 export default function SignUp() {
@@ -53,9 +57,7 @@ export default function SignUp() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+        <Avatar src="https://i.imgur.com/ngXJEbp.png" variant="square" className={classes.large} />
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
