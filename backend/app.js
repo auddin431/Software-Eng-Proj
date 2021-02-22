@@ -5,6 +5,8 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
 
+const port = 5000
+
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var testAPIRouter = require("./routes/testAPI");
@@ -43,3 +45,5 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+app.listen(port, () => console.log(`SERVER LISTENING ON PORT ${port}`));
