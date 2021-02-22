@@ -13,10 +13,16 @@ function App(){
         <Router>
             <GlobalStyle />
             <Hero />
-            <Products heading='Choose your Appetizer' data={productData}/>
+            <div id='appetizers'>
+                <Products heading='Choose your Appetizer' data={productData}/>
+            </div>
             <Feature />
-            <Products heading='Choose your Entree' data={productDataTwo}/>
-            <Products heading='Choose your Entree' data={productDataThree}/>
+            <div id='entrees'>
+                <Products heading='Choose your Entree' data={productDataTwo}/>
+            </div>
+            <div id='desserts'>
+                <Products heading='Choose your Dessert' data={productDataThree}/>
+            </div>
             <Footer />
         </Router>
     );
