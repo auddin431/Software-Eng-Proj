@@ -10,7 +10,7 @@ const Navbar = ( {toggle} ) => {
                 <NavLink to='/'>Movies</NavLink>
                 <NavLink to='/'>Dine-In Menu</NavLink>
                 <NavLink to='/'>My Tickets</NavLink>
-                <NavIcon onClick={toggle}>
+                <NavIcon>
                     <p>Menu</p>
                     <Bars />
                 </NavIcon>
