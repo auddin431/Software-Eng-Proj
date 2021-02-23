@@ -1,11 +1,11 @@
 //type rafce + tab to get basic structure
 import React, {useState} from 'react';
-import Navbar from '../Navbar';
+import NavBar from "../pages/NavBar";
 import Sidebar from '../Sidebar';
 import { HeroContainer, HeroContent, HeroItems, HeroH1, HeroP, HeroBtn } from './HeroElements';
 
 
-const Hero = () => {
+export default function Hero(){
  const [isOpen, setIsOpen] = useState(false)
  
  const toggle = () => {
@@ -14,7 +14,7 @@ const Hero = () => {
 
     return (
        <HeroContainer>
-           <Navbar toggle={toggle} />
+           <NavBar />
            <Sidebar isOpen={isOpen} toggle={toggle} />
            <HeroContent>
                <HeroItems>
@@ -27,4 +27,4 @@ const Hero = () => {
     );
 };
 
-export default Hero;
+

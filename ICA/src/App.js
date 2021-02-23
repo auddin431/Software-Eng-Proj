@@ -3,6 +3,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import MovieSelection from "./components/pages/MovieSelection";
+import FoodSelection from "./components/pages/FoodSelection";
 import SignIn from "./components/pages/SignIn";
 import SignUp from "./components/pages/SignUp";
 import { CssBaseline } from '@material-ui/core';
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/SignUp" component={SignUp}></Route>
       <Route exact path="/" component={Home}></Route>
       <Route exact path="/MovieSelection" component={MovieSelection}></Route>
+      <Route exact path="/FoodSelection" component={FoodSelection}></Route>
     </div>
   );
 }

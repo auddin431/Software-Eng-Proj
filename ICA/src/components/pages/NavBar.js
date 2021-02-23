@@ -12,7 +12,7 @@ const NavBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto ml-auto">
           <Nav.Link href="/MovieSelection">Movies</Nav.Link>
-          <Nav.Link href="#menu">Dine-In Menu</Nav.Link>
+          <Nav.Link href="/FoodSelection">Dine-In Menu</Nav.Link>
           <Nav.Link href="#tickets">My Tickets</Nav.Link>
         </Nav>
         <Nav>
