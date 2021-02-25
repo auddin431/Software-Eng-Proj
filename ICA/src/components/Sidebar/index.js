@@ -1,5 +1,5 @@
 import React from 'react'
-import { SidebarContainer, Icon, CloseIcon, SidebarMenu, SidebarLink, SidebarRoute, SideBtnWrap } from './SidebarElements'; 
+import { SidebarContainer, Icon, CloseIcon, SidebarMenu, SidebarLink, SidebarRoute, SideBtnWrap, CartBtn, CartIcon } from './SidebarElements'; 
 import {Link} from 'react-scroll';
 
 //to="/" inside the quotations, would have to make own links to go to other pages
@@ -17,8 +17,11 @@ const Sidebar = ({isOpen, toggle}) => {
                 <SidebarLink><Link  to="desserts" spy={true} smooth={true}>Desserts</Link></SidebarLink>
             </SidebarMenu>
             <SideBtnWrap>
-                <SidebarRoute to="/">Order Now</SidebarRoute>
+                <SidebarRoute to="/">Checkout</SidebarRoute>
             </SideBtnWrap>
+            <CartBtn> 
+                <CartIcon/>   1
+            </CartBtn>
         </SidebarContainer>
     )
 }
