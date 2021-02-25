@@ -20,7 +20,7 @@ const Sidebar = ({isOpen, toggle}) => {
                 <SidebarRoute to="/">Checkout</SidebarRoute>
             </SideBtnWrap>
             <CartBtn> 
-                <CartIcon/>   1
+                <CartIcon/>1
             </CartBtn>
         </SidebarContainer>
     )
