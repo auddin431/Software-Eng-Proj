@@ -17,9 +17,26 @@ export default function Hero() {
 
   const call = async () => {
     try {
-      const ret = await fetch("http://localhost:9000/testAPI");
+      const ret = await fetch("http://localhost:9000/testAPI/bruh");
       const text = await ret.text();
       setTest(text);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const pp = async () => {
+    try {
+      const postTest = await fetch("http://localhost:9000/testAPI/bruh69", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ bruh: "moment" }),
+      });
+      //   const text = await ret.text();
+      //   setTest(text);
     } catch (err) {
       console.log(err);
     }
@@ -28,6 +45,7 @@ export default function Hero() {
   const toggle = () => {
     setIsOpen(!isOpen);
     call();
+    pp();
   };
 
   return (
