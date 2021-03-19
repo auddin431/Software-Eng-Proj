@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import {FaTimes, FaShoppingCart} from 'react-icons/fa';
-import {RiShoppingCartLine} from 'react-icons/ri';
+import {FaTimes} from 'react-icons/fa';
+
 
 //function within. if true, set right to 0, otherwise set it to -1000px (offscreen)
 export const SidebarContainer = styled.aside`
@@ -37,23 +37,6 @@ export const Icon = styled.div`
     outline: none;
 `;
 
-export const CartIcon = styled(RiShoppingCartLine)`
-    color: #fff;
-`;
-
-export const CartBtn = styled.div`
-    position: absolute;
-    bottom: 1.2rem;
-    right: 1.5rem;
-    background: transparent;
-    font-size: 1.5rem;
-    cursor pointer;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    
-    
-`;
 
 //in repeat, first arg is 3 because 3 options in sidebar. change if you want more
 //second one smaller for media devices like phones i think

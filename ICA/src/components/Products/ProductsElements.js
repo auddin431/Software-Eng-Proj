@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+//import {FaShoppingCart} from 'react-icons/fa';
+import {RiShoppingCartLine} from 'react-icons/ri';
 
 export const ProductsContainer = styled.div`
     width: 100vw;
@@ -71,4 +73,22 @@ export const ProductButton = styled.button`
         cursor: pointer;
         color: #000;
     }
+`;
+
+export const CartIcon = styled(RiShoppingCartLine)`
+    color: #fff;
+`;
+
+export const CartBtn = styled.div`
+    position: absolute;
+    top: 4rem;
+    right: 1.5rem;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+    
 `;
