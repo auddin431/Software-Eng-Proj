@@ -15,15 +15,9 @@ function FoodSelection() {
             
             <Hero />
             <div id='appetizers'>
-                <Products heading='Choose your Appetizer' data={productData}/>
+                <Products heading='Menu' data={productData}/>
             </div>
-            <Feature />
-            <div id='entrees'>
-                <Products heading='Choose your Entree' data={productDataTwo}/>
-            </div>
-            <div id='desserts'>
-                <Products heading='Choose your Dessert' data={productDataThree}/>
-            </div>
+            
             <Footer />
             
         </Router>
@@ -31,3 +25,12 @@ function FoodSelection() {
 }
 
 export default FoodSelection;
+/*
+<Feature />
+            <div id='entrees'>
+                <Products heading='Choose your Entree' data={productDataTwo}/>
+            </div>
+            <div id='desserts'>
+                <Products heading='Choose your Dessert' data={productDataThree}/>
+            </div>
+            */

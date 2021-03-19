@@ -33,6 +33,54 @@ export const productData = [
         desc: 'Hand-breaded, fried golden brown and served with our own special marinara dipping sauce',
         img: product3,
         button: 'Add to Cart'
+    },
+    {
+        alt: 'Entree',
+        name: 'Hotdog',
+        price: '$4.99',
+        desc: 'Who wants a weiner?',
+        img: product4,
+        button: 'Add to Cart'
+    },
+    {
+        alt: 'Entree',
+        name: 'Spaghetti & Meatballs',
+        price: '$11.99',
+        desc: "Perfectly cooked spaghetti topped with tangy tomato sauce pairs with our seasoned Italian meatballs",
+        img: product5,
+        button: 'Add to Cart'
+    }, 
+    {
+        alt: 'Entree',
+        name: 'BLT Sandwich',
+        price: '$5.99',
+        desc: 'Made with bacon, lettuce, and tomatoes between two thick slices of toasted bread, this sandwich is a simple dinner and an all around favorite!',
+        img: product6,
+        button: 'Add to Cart'
+    },
+    {
+        alt: 'Dessert',
+        name: 'Oreo Milkshake',
+        price: '$4.99',
+        desc: 'Ice cream, milk, chocolate sauce, and Oreos blended together, topped with whipped cream',
+        img: product7,
+        button: 'Add to Cart'
+    },
+    {
+        alt: 'Dessert',
+        name: 'Bubble Tea',
+        price: '$5.99',
+        desc: "Who doesn't like Bubble Tea?",
+        img: product8,
+        button: 'Add to Cart'
+    }, 
+    {
+        alt: 'Dessert',
+        name: 'Cup of Dirt',
+        price: '$2.99',
+        desc: 'The nostalgia is real with this man!',
+        img: product9,
+        button: 'Add to Cart'
     } 
 ];
 
