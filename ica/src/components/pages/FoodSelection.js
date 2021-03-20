@@ -6,6 +6,7 @@ import { GlobalStyle } from '../../globalStyles';
 import Hero from '../Hero';
 import Products from '../Products';
 import { productData, productDataTwo, productDataThree } from '../Products/data';
+//import Cart from '../Cart/cart';
 import Feature from '../Feature';
 import Footer from '../Footer';
 

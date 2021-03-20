@@ -7,6 +7,9 @@ import product6 from '../../images/blt.jpg'
 import product7 from '../../images/oreo-milkshake.jpg'
 import product8 from '../../images/bubbletea.jpg'
 import product9 from '../../images/cup-of-dirt.jpg'
+import product10 from '../../images/coca-cola.jpg'
+import product11 from '../../images/dasani.jpg'
+import product12 from '../../images/budlight.jpg'
 
 //this is an array of objects. each object in the {}
 export const productData = [
@@ -58,6 +61,30 @@ export const productData = [
         img: product6,
         button: 'Add to Cart'
     },
+    {
+        alt: 'Drink',
+        name: 'Coca-Cola',
+        price: '$2.50',
+        desc: 'Classic Coke flavor that is refreshing',
+        img: product10,
+        button: 'Add to Cart'
+    },
+    {
+        alt: 'Drink',
+        name: 'Water Bottle',
+        price: '$2.50',
+        desc: "Ice cold bottled watrer from Dasani",
+        img: product11,
+        button: 'Add to Cart'
+    }, 
+    {
+        alt: 'Drink',
+        name: 'Beer',
+        price: '$2.99',
+        desc: 'Crack open a cold one with the bois',
+        img: product12,
+        button: 'Add to Cart'
+    }, 
     {
         alt: 'Dessert',
         name: 'Oreo Milkshake',

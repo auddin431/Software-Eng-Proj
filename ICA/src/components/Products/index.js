@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import {ProductsContainer, ProductWrapper, ProductsHeading, ProductTitle, ProductCard, ProductImg, ProductInfo, ProductDesc, ProductPrice, ProductButton, CartBtn, CartIcon} from './ProductsElements';
-import { productData } from './data'
+import {ProductsContainer, ProductWrapper, ProductsHeading, ProductTitle, ProductCard, ProductImg, ProductInfo, ProductDesc, ProductPrice, ProductButton, CartBtn, CartIcon, MinusBtn} from './ProductsElements';
+import { productData } from './data';
 
 
 //used data as vaugue name since reused to make other arrays of food objects
@@ -43,11 +43,12 @@ const Products = ({heading, data}) => {
                         <ProductCard key={index}>
                             <ProductImg src={ProductsInfo.img} alt= {productData.alt} />
                             <ProductInfo>
-                                <ProductTitle>{ProductsInfo.name}</ProductTitle>
+                                <ProductTitle>{ProductsInfo.alt}: {ProductsInfo.name}</ProductTitle>
                                 <ProductDesc>{ProductsInfo.desc}</ProductDesc>
                                 <ProductPrice>{ProductsInfo.price}</ProductPrice>
                                 <ProductButton onClick={() => addToCart(ProductsInfo)}>{ProductsInfo.button}</ProductButton>
-                                <button onClick={() => removeFromCart(ProductsInfo)}>-</button>
+                                <p></p>
+                                <MinusBtn onClick={() => removeFromCart(ProductsInfo)}>-</MinusBtn>
                             </ProductInfo>
                         </ProductCard>
                     )
@@ -57,7 +58,7 @@ const Products = ({heading, data}) => {
             <CartBtn> 
                 <CartIcon/> 
                 <p>{count}</p>
-            </CartBtn>
+        </CartBtn>
         </ProductsContainer>
 
     )
