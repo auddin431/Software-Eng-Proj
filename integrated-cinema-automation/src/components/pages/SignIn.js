@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -52,8 +52,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function handleSubmit() {
+
+}
+
 export default function SignIn() {
   const classes = useStyles();
+  const [email, setEmail] = useState(0);
+  const [password, setPassword] = useState(0);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -66,6 +72,8 @@ export default function SignIn() {
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
+            value={email}
+            onInput={e=>setEmail(e.target.value)}
             margin="normal"
             required
             fullWidth
@@ -76,6 +84,8 @@ export default function SignIn() {
             autoFocus
           />
           <TextField
+            value={password}
+            onInput={e=>setPassword(e.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -91,12 +101,11 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
-            //type="submit"
             href="/"
             fullWidth
             variant="contained"
             color="primary"
-            //className={classes.submit}
+            onClick={this.handleSubmit}
           >
             Sign In
           </Button>
