@@ -1,17 +1,20 @@
 var createError = require("http-errors");
 var express = require("express");
+var router = express.Router();
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
-var mdb = requrie('mongoose');
+var mdb = require('mongoose');
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var testAPIRouter = require("./routes/testAPI");
 var app = express();
+require('dotenv').config();
+var connection_uri = process.env.MONGODB_URI;
 const port = 5000
 
-mdb.connect(process.env.MONGODB_URI, function(err) {
+mdb.connect(connection_uri, function(err) {
   if (err) {
     console.log('Error: failed to connect to Mongoose Database')
     throw err;

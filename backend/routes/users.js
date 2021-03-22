@@ -1,7 +1,6 @@
 var express = require('express');
-const app = require('../app.js');
 var router = express.Router();
-var User = require('../modles/Users.js');
+var User = require('../models/Users.js');
 var jwt = require('jsonwebtoken');
 const authToken = require('../middleware.js');
 
@@ -12,9 +11,10 @@ router.get('/', function(req, res, next) {
 
 /*
   Sets up a post route for registration. This will be the route used
-  onSubmit when registering.
+  onClick when registering.
 */
 router.post('/register', function(req, res) {
+  console.log("Recived registration request...");
   const {email, password} = req.body;
   const user = new User({email, password});
   user.save(function(err) {
@@ -29,18 +29,18 @@ router.post('/register', function(req, res) {
 
 /*
   Used to authenticate a user who is attempting to login. This
-  is the onSubmit for the login button.
+  is the onClick for the login button.
 */
 router.post('/authenticate', function(req, res) {
   const {email, password} = req.body;
-  User.findOne({email}, function(err, result) {
+  User.findOne({email}, function(err, user) {
     if(err) {
       console.error();
       res.status(500).json({error: 'Error Finding User - Code 500'});
-    } else if(!result) {
+    } else if(!user) {
       res.status(401).json({error: 'Email could not be found - Code 401'});
     } else {
-      user.isCorrectPassword(password, function(err, match) {
+      user.authPassword(password, function(err, match) {
         if(err) {
           res.status(500).json({error: 'Error Authenticating User - Code 500'});
         } else if(!match) {

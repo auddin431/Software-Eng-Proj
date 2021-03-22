@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
 UserSchema.pre('save', function(next) {
     if(this.isNew || this.isModified('password')) {
         const user = this;
-        bcrypt.hash(user.password, saltRounds, function(err, hasedPassword) {
+        bcrypt.hash(user.password, saltRounds, function(err, hashedPassword) {
             if(err) {
                 console.log(`Error hashing password for user ${user.name}`);
                 next(err);
