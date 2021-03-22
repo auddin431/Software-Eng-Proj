@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {ProductsContainer, ProductWrapper, ProductsHeading, ProductTitle, ProductCard, ProductImg, ProductInfo, ProductDesc, ProductPrice, ProductButton, CartBtn, CartIcon, MinusBtn} from './ProductsElements';
 import { productData } from './data';
+import Sidebar from '../Sidebar';
 
 
 //used data as vaugue name since reused to make other arrays of food objects
@@ -17,7 +18,7 @@ const Products = ({heading, data}) => {
         console.log(count);
     };
     console.log(cart);
-    
+    /*
     const removeFromCart = (productsInfo) => {
         let hardCopy = [...cart];
         hardCopy = hardCopy.filter(cartItems => cartItems.name !== productsInfo.name);
@@ -26,6 +27,9 @@ const Products = ({heading, data}) => {
             setCount(count - 1);
         }
     }
+    <MinusBtn onClick={() => removeFromCart(ProductsInfo)}>-</MinusBtn>
+    can delete this component before submtting final project
+    */
 /*
     const cartItems = cart.map((ProductsInfo, index) =>
         <div key={index}>
@@ -40,7 +44,7 @@ const Products = ({heading, data}) => {
             <ProductWrapper>
                 {data.map((ProductsInfo, index) => {
                     return (
-                        <ProductCard key={index}>
+                        <ProductCard key={index} id={ProductsInfo.alt}>
                             <ProductImg src={ProductsInfo.img} alt= {productData.alt} />
                             <ProductInfo>
                                 <ProductTitle>{ProductsInfo.alt}: {ProductsInfo.name}</ProductTitle>
@@ -48,7 +52,6 @@ const Products = ({heading, data}) => {
                                 <ProductPrice>{ProductsInfo.price}</ProductPrice>
                                 <ProductButton onClick={() => addToCart(ProductsInfo)}>{ProductsInfo.button}</ProductButton>
                                 <p></p>
-                                <MinusBtn onClick={() => removeFromCart(ProductsInfo)}>-</MinusBtn>
                             </ProductInfo>
                         </ProductCard>
                     )

@@ -38,15 +38,15 @@ export const Icon = styled.div`
 `;
 
 
-//in repeat, first arg is 3 because 3 options in sidebar. change if you want more
-//second one smaller for media devices like phones i think
+//in repeat, first arg is 4 because 4 options in sidebar. change if you want more
+//second one smaller for media devices like phones I think
 export const SidebarMenu = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 80px);
+    grid-template-rows: repeat(4, 80px);
 
     @media screen and (max-width: 480px) {
-        grid-template-rows: repeat(3, 60px);
+        grid-template-rows: repeat(4, 60px);
     }
 `;
 

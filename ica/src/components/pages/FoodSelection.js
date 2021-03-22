@@ -1,13 +1,11 @@
 import React from "react";
-import NavBar from "./NavBar";
 import "../../App.css";
 import {BrowserRouter as Router } from 'react-router-dom';
-import { GlobalStyle } from '../../globalStyles';
 import Hero from '../Hero';
 import Products from '../Products';
-import { productData, productDataTwo, productDataThree } from '../Products/data';
+import { productData} from '../Products/data';
 //import Cart from '../Cart/cart';
-import Feature from '../Feature';
+//import Feature from '../Feature';
 import Footer from '../Footer';
 
 function FoodSelection() {
@@ -15,10 +13,7 @@ function FoodSelection() {
         <Router>
             
             <Hero />
-            <div id='appetizers'>
-                <Products heading='Menu' data={productData}/>
-            </div>
-            
+            <Products heading='Menu' data={productData}/>
             <Footer />
             
         </Router>

@@ -91,6 +91,7 @@ export const CartBtn = styled.div`
     display: flex;
 `;
 
+/*
 export const MinusBtn = styled.div`
 font-size: 1rem;
 padding: 0.1rem 1rem;
@@ -106,3 +107,4 @@ transition: 0.2 ease-out;
     color: #000;
 }
 `;
+*/

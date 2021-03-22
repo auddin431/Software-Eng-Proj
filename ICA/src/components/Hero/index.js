@@ -20,7 +20,7 @@ export default function Hero(){
                <HeroItems>
                    <HeroH1>Greatest Hotdog Ever</HeroH1>
                    <HeroP>Ready in 60 seconds</HeroP>
-                   <HeroBtn  onClick={toggle}>Open Menu</HeroBtn>
+                   <HeroBtn  onClick={toggle}>Open Sidebar</HeroBtn>
                </HeroItems>
            </HeroContent>
        </HeroContainer>
