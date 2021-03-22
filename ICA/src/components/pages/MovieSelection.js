@@ -11,43 +11,14 @@ const API_KEY = "?api_key=04c35731a5ee918f014970082a0088b1";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 function MovieSelection() {
-    const [movies, setMovies] = useState([]);
-    const ids = ["13223", "76341", "527774"];
-
-    useEffect(() => {
-        //const fetchMovies = async () => {
-        //    var i;
-        //    for (i = 0; i < ids.length; i++) {
-        //        let response = await fetch(MOVIE_API + ids[i] + API_KEY);
-        //        response = await response.json();
-        //        //console.log(response);
-        //        setMovies([...movies, response]);
-        //    }
-        //};
-        //fetchMovies();
-        var i;
-        for (i = 0; i < ids.length; i++){
-            fetch(MOVIE_API + ids[i] + API_KEY)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setMovies([...movies,data]);
-            });
-        }
-        // fetch(FEATURED_API)
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         //console.log(data);
-        //         setMovies(data.results);
-        //     });
-    }, []);
+    const ids = ["13223", "76341", "527774", "791373", "299534"];
 
     return (
         <>
             <NavBar />
             <div className="movie-container">
-                {movies.map((movie) => (
-                    <Movie key={movie.id} {...movie} />
+                {ids.map((movieid) => (
+                    <Movie key={movieid} data={movieid} />
                 ))}
             </div>
         </>
