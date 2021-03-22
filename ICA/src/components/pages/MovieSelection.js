@@ -11,7 +11,7 @@ const API_KEY = "?api_key=04c35731a5ee918f014970082a0088b1";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 function MovieSelection() {
-    const ids = ["13223", "76341", "527774", "791373", "299534"];
+    const ids = ["13223", "76341", "527774", "791373", "299534" ,"157336"];
 
     return (
         <>
