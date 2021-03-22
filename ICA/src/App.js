@@ -7,7 +7,7 @@ import FoodSelection from "./components/pages/FoodSelection";
 import SignIn from "./components/pages/SignIn";
 import SignUp from "./components/pages/SignUp";
 import { CssBaseline } from '@material-ui/core';
-
+import Checkout from "./components/pages/Checkout";
 function App() {
   return (
     <div>
