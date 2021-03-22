@@ -8,6 +8,7 @@ import SignIn from "./components/pages/SignIn";
 import SignUp from "./components/pages/SignUp";
 import { CssBaseline } from '@material-ui/core';
 import Checkout from "./components/pages/Checkout";
+import Dashboard from "./components/pages/Dashboard/Dashboard";
 function App() {
   return (
     <div>
@@ -16,6 +17,8 @@ function App() {
       <Route exact path="/" component={Home}></Route>
       <Route exact path="/MovieSelection" component={MovieSelection}></Route>
       <Route exact path="/FoodSelection" component={FoodSelection}></Route>
+      <Route exact path="/Checkout" component={Checkout}></Route>
+      <Route exact path="/Dashboard" component={Dashboard}></Route>
     </div>
   );
 }

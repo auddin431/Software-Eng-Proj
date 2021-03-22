@@ -15,10 +15,10 @@ const products = [
 ];
 const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
 const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+  { name: 'Card type', detail: 'Doge' },
+  { name: 'Card holder', detail: 'John Reiner Sloan' },
+  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-6969' },
+  { name: 'Expiry date', detail: '06/9420' },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -60,7 +60,7 @@ export default function Review() {
           <Typography variant="h6" gutterBottom className={classes.title}>
             Shipping
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
+          <Typography gutterBottom>John Reiner Sloan</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
