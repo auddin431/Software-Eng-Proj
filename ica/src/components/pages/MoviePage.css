@@ -33,6 +33,10 @@
     display: inline-block;
 }
 
+.director-container {
+    padding: 1rem 0;
+}
+
 .cast-container h1 {
     padding: 1rem;
     text-align: center;

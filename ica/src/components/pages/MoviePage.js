@@ -34,13 +34,29 @@ function MoviePage() {
             });
     }, []);
 
+    const [director, setDirector] = useState([]);
+    useEffect(() => {
+        fetch(MOVIE_API + id + "/credits" + API_KEY)
+            .then((res) => res.json())
+            .then((data) => {
+                //console.log(data);
+                var i;
+                for (i = 0; i < data.crew.length; i++) {
+                    if (data.crew[i].job === "Director") {
+                        //console.log(data.crew[i].job);
+                        setDirector(data.crew[i].name);
+                        break;
+                    }
+                }
+            });
+    }, []);
+
     const [trailer, setTrailer] = useState([]);
     useEffect(() => {
         fetch(MOVIE_API + id + "/videos" + API_KEY)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
-                //setTrailer(data.results);
+                //console.log(data);
                 if (data.results.length > 0) {
                     var i;
                     for (i = 0; i < data.results.length; i++) {
@@ -74,6 +90,9 @@ function MoviePage() {
                     <hr></hr>
                     <h3>Overview</h3>
                     <p>{movie.overview}</p>
+                    <div className="director-container">
+                        <h4>Directed by {director}</h4>
+                    </div>
                     <a href={trailer}>
                         <h2>Trailer</h2>
                     </a>

@@ -5,7 +5,7 @@ import "./MovieSelection.css";
 import Movie from "../Movie";
 
 function MovieSelection() {
-    const ids = ["13223", "76341", "527774", "791373", "299534" ,"157336"];
+    const ids = ["13223", "76341", "527774", "791373", "299534", "157336", "402900"];
 
     return (
         <>
