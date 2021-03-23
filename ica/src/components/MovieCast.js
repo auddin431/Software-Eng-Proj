@@ -4,7 +4,7 @@ const IMG_SRC = "https://image.tmdb.org/t/p/w1280"
 const MOVIE_API = "https://api.themoviedb.org/3/person/";
 const API_KEY = "?api_key=" + process.env.REACT_APP_TMDB_API_KEY;
 
-function MovieCast({data,name}) {
+function MovieCast({data,name,role}) {
 
     //console.log(data,name);
 
@@ -44,6 +44,7 @@ function MovieCast({data,name}) {
                 <img src={pic} alt={name} />
             </a>
             <h5>{name}</h5>
+            <h6>{role}</h6>
         </div>
     )
 }

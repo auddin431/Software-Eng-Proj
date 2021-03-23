@@ -29,7 +29,7 @@ function MoviePage() {
         fetch(MOVIE_API + id + "/credits" + API_KEY)
             .then((res) => res.json())
             .then((data) => {
-                //console.log(data);
+                console.log(data);
                 setCast(data.cast);
             });
     }, []);
@@ -102,7 +102,7 @@ function MoviePage() {
                 <h1>Cast</h1>
                 <div className="movie-cast">
                     {cast.slice(0,50).map((people) => (
-                        <MovieCast key={people.id} data={people.id} name={people.name}/>
+                        <MovieCast key={people.id} data={people.id} name={people.name} role={people.character}/>
                     ))}
                 </div>
             </div>
