@@ -98,6 +98,10 @@ function MoviePage() {
                     </a>
                 </div>
             </div>
+            <div className="showtimes-container">
+                <h1>Showtimes</h1>
+                <img src="https://i.kym-cdn.com/entries/icons/original/000/025/605/showtime.jpg" alt="showtime" class="center"/>
+            </div>
             <div className="cast-container">
                 <h1>Cast</h1>
                 <div className="movie-cast">
