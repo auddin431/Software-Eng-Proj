@@ -16,7 +16,7 @@ const NavBar = () => {
           <Nav.Link href="#tickets">My Tickets</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link eventKey={2} href="#account">
+          <Nav.Link eventKey={2} href="/AccountPage">
             My Account
           </Nav.Link>
         </Nav>
