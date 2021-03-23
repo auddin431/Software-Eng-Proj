@@ -93,7 +93,7 @@ function MoviePage() {
                     <div className="director-container">
                         <h4>Directed by {director}</h4>
                     </div>
-                    <a href={trailer}>
+                    <a href={trailer} target="_blank" rel="noreferrer">
                         <h2>Trailer</h2>
                     </a>
                 </div>
