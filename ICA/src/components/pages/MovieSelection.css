@@ -3,6 +3,7 @@ body {
 }
 
 .movie-container {
+    padding: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
