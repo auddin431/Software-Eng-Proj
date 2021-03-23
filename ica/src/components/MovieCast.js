@@ -40,7 +40,9 @@ function MovieCast({data,name}) {
 
     return (
         <div className="people">
-            <img src={pic} alt={name} />
+            <a href={"https://www.themoviedb.org/person/" + data}>
+                <img src={pic} alt={name} />
+            </a>
             <h5>{name}</h5>
         </div>
     )
