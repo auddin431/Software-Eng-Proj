@@ -1,3 +1,25 @@
 body {
     background-color: #282c34;
 }
+
+.movie-container {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+    margin: 1rem;
+    width: 300px;
+}
+
+.movie img {
+    border-radius: 5%;
+    max-width: 100%;
+}
+
+.movie h4 {
+    padding: 1rem;
+    text-align: center;
+}
