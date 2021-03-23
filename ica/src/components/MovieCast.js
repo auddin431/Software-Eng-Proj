@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-
+const IMG_SRC = "https://image.tmdb.org/t/p/w1280"
 const MOVIE_API = "https://api.themoviedb.org/3/person/";
-const IMG = "/images"
-const API_KEY = "?api_key=04c35731a5ee918f014970082a0088b1";
-const IMG_SRC = "https://image.tmdb.org/t/p/w500"
+const API_KEY = "?api_key=" + process.env.REACT_APP_TMDB_API_KEY;
 
 function MovieCast({data,name}) {
 
@@ -12,7 +10,7 @@ function MovieCast({data,name}) {
 
     const [pic, setPic] = useState([]);
     useEffect(() => {
-        fetch(MOVIE_API + data + IMG + API_KEY)
+        fetch(MOVIE_API + data + "/images" + API_KEY)
             .then((res) => res.json())
             .then((data) => {
                 //console.log(data);

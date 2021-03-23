@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const IMG_API = 'https://image.tmdb.org/t/p/w1280';
+const IMG_SRC = 'https://image.tmdb.org/t/p/w1280';
 const MOVIE_API = "https://api.themoviedb.org/3/movie/";
-const API_KEY = "?api_key=04c35731a5ee918f014970082a0088b1";
-const MVPAGE = "/MoviePage?id=";
+const API_KEY = "?api_key=" + process.env.REACT_APP_TMDB_API_KEY;
 
 function Movie({data}) {
-    const PAGE_ID = MVPAGE + data;
+    const PATH = "/MoviePage?id=" + data;
     const [movie, setMovie] = useState([]);
 
     useEffect(() => {
@@ -20,8 +19,8 @@ function Movie({data}) {
 
     return (
         <div className="movie"> 
-            <a href={PAGE_ID}>
-                <img src={IMG_API + movie.poster_path} alt={movie.title}/>
+            <a href={PATH}>
+                <img src={IMG_SRC + movie.poster_path} alt={movie.title}/>
             </a>
             <h4>{movie.title}</h4>
         </div>

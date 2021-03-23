@@ -3,10 +3,9 @@ import NavBar from "./NavBar";
 import './MoviePage.css';
 import MovieCast from "../MovieCast";
 
-const IMG_API = 'https://image.tmdb.org/t/p/w1280';
+const IMG_SRC = 'https://image.tmdb.org/t/p/w1280';
 const MOVIE_API = "https://api.themoviedb.org/3/movie/";
-const API_KEY = "?api_key=04c35731a5ee918f014970082a0088b1";
-const CREDS = "/credits";
+const API_KEY = "?api_key=" + process.env.REACT_APP_TMDB_API_KEY;
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -27,7 +26,7 @@ function MoviePage() {
 
     const [cast, setCast] = useState([]);
     useEffect(() => {
-        fetch(MOVIE_API + id + CREDS + API_KEY)
+        fetch(MOVIE_API + id + "/credits" + API_KEY)
             .then((res) => res.json())
             .then((data) => {
                 //console.log(data);
@@ -68,7 +67,7 @@ function MoviePage() {
             <div className="tagline"><h1>{movie.tagline}</h1></div>
             <div className="main-container">
                 <div className="movie-img">
-                    <img src={IMG_API + movie.poster_path} alt={movie.title} />
+                    <img src={IMG_SRC + movie.poster_path} alt={movie.title} />
                 </div>
                 <div className="movie-info">
                     <h1>{movie.title}</h1>
