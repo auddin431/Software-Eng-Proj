@@ -15,9 +15,23 @@ const Products = ({heading, data}) => {
     const addToCart = (productsInfo) => {
         setCart([...cart, productsInfo]);
         setCount(count + 1);
-        console.log(count);
+        const postDatabase = async (order) => {
+            const reqOptions = {
+                method: "POST",
+                headers: {
+                   Accept: "application/json",
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(order)
+             }
+            let response = await fetch("http://localhost:9000/testPost/", reqOptions);
+        }
+        postDatabase(productsInfo)
     };
-    console.log(cart);
+
+
+
+    //console.log(cart);
     /*
     const removeFromCart = (productsInfo) => {
         let hardCopy = [...cart];
