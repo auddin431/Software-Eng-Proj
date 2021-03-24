@@ -2,7 +2,7 @@ import { createContext } from "react"
 
 export default createContext({
 	movies: {
-		"Ford v Ferrari": 10,
+		"Ford v Ferrari": 12,
 		"Avengers: Endgame": 8,
 		"Rogue One": 11,
 		"Mad Max: Fury Road": 12,

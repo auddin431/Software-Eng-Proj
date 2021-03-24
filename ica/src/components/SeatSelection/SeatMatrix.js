@@ -20,22 +20,22 @@ const SeatMatrix = () => {
 			<div class="screen"></div>
 			<div className="container row movie-layout">
 				<div className="movie-column-1" >
-					{GenerateSeats([1, 2])}
-					{GenerateSeats([3, 4])}
-					{GenerateSeats([5, 6])}
-					{GenerateSeats([7, 8])}
+					{GenerateSeats(["A1", "A2"])}
+					{GenerateSeats(["B1", "B2"])}
+					{GenerateSeats(["C1", "C2"])}
+					{GenerateSeats(["D1", "D2"])}
 				</div>
 				<div className="movie-column-2">
-					{GenerateSeats([13, 14, 15, 16, 17])}
-					{GenerateSeats([18, 19, 20, 21, 22])}
-					{GenerateSeats([23, 24, 25, 26, 27])}
-					{GenerateSeats([28, 29, 30, 31, 32])}
+					{GenerateSeats(["A3", "A4", "A5", "A6", "A7"])}
+					{GenerateSeats(["B3", "B4", "B5", "B6", "B7"])}
+					{GenerateSeats(["C3", "C4", "C5", "C6", "C7"])}
+					{GenerateSeats(["D3", "D4", "D5", "D6", "D7"])}
 				</div>
 				<div className="movie-column-3">
-					{GenerateSeats([33,34])}
-					{GenerateSeats([35,36])}
-					{GenerateSeats([37, 38])}
-					{GenerateSeats([39, 40])}
+					{GenerateSeats(["A8","A9"])}
+					{GenerateSeats(["B8","B9"])}
+					{GenerateSeats(["C8","C9"])}
+					{GenerateSeats(["D8","D9"])}
 				</div>
 			</div>
 		</div>
