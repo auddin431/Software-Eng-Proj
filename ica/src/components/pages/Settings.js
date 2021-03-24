@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../../App.css";
-import "./AccountPage.css";
+import "./Settings.css";
 
 const Settings = () => {
   return (
