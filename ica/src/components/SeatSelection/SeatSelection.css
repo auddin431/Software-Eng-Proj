@@ -1,12 +1,12 @@
 .main {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 900px;
-	justify-content: space-evenly;
-	background-color: #282c34;
-	border-radius: 10px;
-	color: #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 700px;
+  justify-content: space-evenly;
+  background-color: #282c34;
+  border-radius: 0px;
+  color: #ddd;
 }
