@@ -52,6 +52,10 @@ a:-webkit-any-link {
     padding: 1rem 0;
 }
 
+.showtimes-container {
+    max-width: 100%;
+}
+
 .showtimes-container h1 {
     padding: 1rem;
     text-align: center;
@@ -120,4 +124,59 @@ a:-webkit-any-link {
 
 .people h6 {
     text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .tagline h1 {
+        font-size: 6vw;
+    }
+
+    .main-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 1rem;
+        justify-content: center;
+    }
+
+    .movie-img {
+        margin: 0;
+        max-width: 60%;
+    }
+
+    .movie-info {
+        max-width: 100%;
+    }
+
+    .movie-info h1 {
+        text-align: center;
+    }
+
+    .movie-info p {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    .showtimes-container img {
+        max-width: 100%;
+    }
+
+    .movie-cast {
+        padding: 0;
+    }
+
+    .people {
+        width: 150px;
+    }
+
+    .people img {
+        height: 225px;
+    }
+
+    .people h5 {
+        font-size: 4.5vw;
+    }
+
+    .people h6 {
+        font-size: 3.5vw;
+    }
 }
