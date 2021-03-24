@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import './MoviePage.css';
 import MovieCast from "../MovieCast";
 import {FaYoutube} from 'react-icons/fa';
+import { RiMovie2Fill } from "react-icons/ri";
 
 const IMG_SRC = 'https://image.tmdb.org/t/p/w1280';
 const MOVIE_API = "https://api.themoviedb.org/3/movie/";
@@ -12,6 +13,36 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 //console.log(id);
+
+function getRuntime(runtime) {
+    let hours = Math.floor(runtime/60);
+    let minutes = runtime % 60;
+
+    let hr;
+    let mins;
+    if (hours === 1) {
+        hr = hours + "hr";
+    }
+    else if (hours === 0) {
+        hr = "";
+    }
+    else {
+        hr = hours + "hrs";
+    }
+
+    if (minutes === 1) {
+        mins = minutes + "min";
+    }
+    else if (minutes === 0) {
+        mins = "";
+    }
+    else {
+        mins = minutes + "mins";
+    }
+
+    return hr + " " + mins;
+
+}
 
 function MoviePage() {
 
@@ -88,6 +119,8 @@ function MoviePage() {
                 </div>
                 <div className="movie-info">
                     <h1>{movie.title}</h1>
+                    <h5><RiMovie2Fill /> {getRuntime(movie.runtime)}
+                    </h5>
                     <hr></hr>
                     <h3>Overview</h3>
                     <p>{movie.overview}</p>
