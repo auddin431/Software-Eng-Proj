@@ -18,22 +18,23 @@ function MovieCast({data,name,role}) {
                     setPic(IMG_SRC + data.profiles[0].file_path);
                 }
                 else{
-                    let i = Math.floor(Math.random() * 5);
-                    if (i === 0) {
-                        setPic("https://cdn.discordapp.com/attachments/801853752050843698/814159903219646504/image0.jpg");
-                    }
-                    else if (i === 1) {
-                        setPic("https://cdn.discordapp.com/attachments/801853752050843698/814658683002028053/pimp.jpg");
-                    }
-                    else if (i === 2) {
-                        setPic("https://cdn.discordapp.com/attachments/801853752050843698/818693396470300722/Snapchat-2102304751.jpg");
-                    }
-                    else if (i === 3) {
-                        setPic("https://cdn.discordapp.com/attachments/759969316794925066/783854646833184808/sami.JPG");
-                    }
-                    else {
-                        setPic("https://cdn.discordapp.com/attachments/801853752050843698/814641746877087773/image0.jpg");
-                    }
+                    // let i = Math.floor(Math.random() * 5);
+                    // if (i === 0) {
+                    //     setPic("https://cdn.discordapp.com/attachments/801853752050843698/814159903219646504/image0.jpg");
+                    // }
+                    // else if (i === 1) {
+                    //     setPic("https://cdn.discordapp.com/attachments/801853752050843698/814658683002028053/pimp.jpg");
+                    // }
+                    // else if (i === 2) {
+                    //     setPic("https://cdn.discordapp.com/attachments/801853752050843698/818693396470300722/Snapchat-2102304751.jpg");
+                    // }
+                    // else if (i === 3) {
+                    //     setPic("https://cdn.discordapp.com/attachments/759969316794925066/783854646833184808/sami.JPG");
+                    // }
+                    // else {
+                    //     setPic("https://cdn.discordapp.com/attachments/801853752050843698/814641746877087773/image0.jpg");
+                    // }
+                    setPic("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png");
                 }
             });
     }, []);
