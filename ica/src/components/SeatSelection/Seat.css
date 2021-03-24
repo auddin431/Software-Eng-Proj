@@ -1,0 +1,55 @@
+.movie-layout{
+    flex-wrap: nowrap;
+}
+.col-md-2{
+    padding: 10px 15px;
+}
+
+.seat{
+    width: 20px;
+    height: 20px;
+    border-radius: 50% 50% 0px 0px;
+    margin: 0px;
+}
+.seat:not(.seat-black):hover{
+    transform: scale(1.2);
+}
+.row{
+    flex-wrap: nowrap;
+    margin-right: 0px;
+    margin-left: 0px;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+}
+.screen {
+    background-color: #fff;
+    height: 70px;
+    width: 100%;
+    transform: perspective(60em) rotateX(-45deg);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+}
+.seat-grey{
+    cursor: pointer;
+    background-color: #ddd;
+}
+.seat-occupy{
+    cursor: pointer;
+    background-color: rgb(177, 94, 39);
+}
+.seat-black{
+    cursor: default;
+    background-color: black;
+}
+.seat-undefined{
+    cursor: auto;
+    pointer-events: none;
+}
+.movie-complex p{
+    text-align: center;
+    font-size: 20px;
+}
+.movie-selector{
+    width: 250px;
+}

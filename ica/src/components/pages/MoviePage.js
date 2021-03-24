@@ -134,7 +134,9 @@ function MoviePage() {
             </div>
             <div className="showtimes-container">
                 <h1>Showtimes</h1>
-                <img src="https://i.kym-cdn.com/entries/icons/original/000/025/605/showtime.jpg" alt="showtime" class="center"/>
+                <a href="/SeatSelection">
+                    <img src="https://i.kym-cdn.com/entries/icons/original/000/025/605/showtime.jpg" alt="showtime" class="center"/>
+                </a>
             </div>
             <div className="cast-container">
                 <h1>Cast</h1>

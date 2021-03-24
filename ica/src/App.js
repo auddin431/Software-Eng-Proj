@@ -13,6 +13,7 @@ import Dashboard from "./components/pages/Dashboard/Dashboard";
 import AccountHome from "./components/pages/AccountPage";
 import PurchaseHistory from "./components/pages/PurchaseHistory";
 import Settings from "./components/pages/Settings";
+import SeatSelection from "./components/SeatSelection/SeatSelection";
 function App() {
   return (
     <div>
@@ -27,6 +28,7 @@ function App() {
       <Route exact path="/AccountPage" component={AccountHome}></Route>
       <Route exact path="/PurchaseHistory" component={PurchaseHistory}></Route>
       <Route exact path="/Settings" component={Settings}></Route>
+      <Route exact path="/SeatSelection" component={SeatSelection}></Route>
     </div>
   );
 }
