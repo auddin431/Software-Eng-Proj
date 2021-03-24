@@ -6,6 +6,10 @@ a:hover {
     color: inherit;
 }
 
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
 .tagline {
     margin: 0 auto;
     padding: 2rem;
@@ -86,9 +90,8 @@ a:hover {
     color: #8ad7f9;
     border-style: solid;
     border-color: #8ad7f9;
-    border-radius: 10%;
+    border-radius: 1rem;
     align-content: space-between;
-    
 }
 
 .cast-container h1 {
