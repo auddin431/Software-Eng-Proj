@@ -25,9 +25,9 @@ const AccountHome = () => {
           <div className="AP-box">
           <div className="AP-Name"><h3>Shawn Muller</h3></div>
           <div className="AP-container">Email: Shwnmuller@gmail.com</div>
-          <div className="AP-container">Password: RandomPassword</div>
+          <div className="AP-container">Password: **********</div>
           <div className="AP-container">Phone: 908-222-3333</div>
-          <div className="AP-container">Payment Method: Discover: 1234 5678 1234 5678 Exp: 06/23</div>
+          <div className="AP-container">Payment Method: Discover: **** **** **** 5678 Exp: 06/23</div>
           <div className="AP-container">Rewards Points: 50pts</div>
           <button className="editButton"><h3>Edit</h3></button>
           </div>
