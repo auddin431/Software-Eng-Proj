@@ -1,3 +1,11 @@
+a {
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
+
 .tagline {
     margin: 0 auto;
     padding: 2rem;

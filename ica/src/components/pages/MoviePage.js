@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import './MoviePage.css';
 import MovieCast from "../MovieCast";
+import {FaYoutube} from 'react-icons/fa';
 
 const IMG_SRC = 'https://image.tmdb.org/t/p/w1280';
 const MOVIE_API = "https://api.themoviedb.org/3/movie/";
@@ -94,7 +95,7 @@ function MoviePage() {
                         <h4>Directed by {director}</h4>
                     </div>
                     <a href={trailer} target="_blank" rel="noreferrer">
-                        <h2>Trailer</h2>
+                        <h2>Trailer <FaYoutube /></h2>
                     </a>
                 </div>
             </div>
