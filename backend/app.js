@@ -8,7 +8,7 @@ var cors = require("cors");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var testAPIRouter = require("./routes/testAPI");
-var testPostRouter = require("/routes/testPost");
+var testPostRouter = require("./routes/testPost");
 
 var app = express();
 
