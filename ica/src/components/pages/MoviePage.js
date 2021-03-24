@@ -134,9 +134,13 @@ function MoviePage() {
             </div>
             <div className="showtimes-container">
                 <h1>Showtimes</h1>
-                <a href="/SeatSelection">
-                    <img src="https://i.kym-cdn.com/entries/icons/original/000/025/605/showtime.jpg" alt="showtime" class="center"/>
-                </a>
+                <div className="showtimes-flex">
+                    <a href={"/SeatSelection?id=" + id}>
+                        <h3>11:20am</h3>
+                        <h3>3:00pm</h3>
+                        <h3>8:30pm</h3>
+                    </a>
+                </div>
             </div>
             <div className="cast-container">
                 <h1>Cast</h1>
