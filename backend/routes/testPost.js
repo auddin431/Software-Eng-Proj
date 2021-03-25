@@ -23,6 +23,11 @@ router.post("/", function (req, res, next) {
   const order = new Order({ name: req.body.name, price: req.body.price });
   order.save(function (err) {
     if (err) return console.error(err);
+    console.log("Order was saved");
+  });
+  Order.find({}, (err, orders) => {
+    if (err) return onsole.error(err);
+    console.log(orders);
   });
 });
 module.exports = router;
