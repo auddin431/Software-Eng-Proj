@@ -4,14 +4,13 @@ import './MoviePage.css';
 import MovieCast from "../MovieCast";
 import {FaYoutube} from 'react-icons/fa';
 import { RiMovie2Fill } from "react-icons/ri";
-
 const IMG_SRC = 'https://image.tmdb.org/t/p/w1280';
 const MOVIE_API = "https://api.themoviedb.org/3/movie/";
 const API_KEY = "?api_key=" + process.env.REACT_APP_TMDB_API_KEY;
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get('id')
+const id = urlParams.get('id');
 //console.log(id);
 
 function getRuntime(runtime) {
