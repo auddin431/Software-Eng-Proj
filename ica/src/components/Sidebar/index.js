@@ -18,7 +18,7 @@ const Sidebar = ({isOpen, toggle}) => {
                 <SidebarLink><Link  to="Dessert" spy={true} smooth={true}>Desserts</Link></SidebarLink>
             </SidebarMenu>
             <SideBtnWrap>
-                <SidebarRoute to="/">Checkout</SidebarRoute>
+                <SidebarRoute to="/Checkout" target="_blank">Checkout</SidebarRoute>
             </SideBtnWrap>
         </SidebarContainer>
     )
