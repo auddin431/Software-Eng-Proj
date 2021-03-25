@@ -6,6 +6,8 @@ import SeatAvailability from "./SeatAvailability";
 import SeatMatrix from "./SeatMatrix";
 import PriceCalculator from "./PriceCalculator";
 import MovieContext from "./MovieContext";
+import QRCode from "react-qr-code";
+import ReactDOM from "react-dom";
 
 const IMG_SRC = "https://image.tmdb.org/t/p/w1280";
 const MOVIE_API = "https://api.themoviedb.org/3/movie/";
@@ -32,6 +34,19 @@ const App = () => {
     seatNumbers: [],
   });
 
+  const downloadQR = () => {
+    const canvas = document.getElementById("123456");
+    const pngUrl = canvas
+      .toDataURL("SeatSelection/image/png")
+      .replace("SeatSelection/image/png", "SeatSelection/image/octet-stream");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = "123456.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+
   return (
     <>
       <NavBar />
@@ -43,6 +58,15 @@ const App = () => {
           <SeatMatrix />
           <SeatAvailability />
           <PriceCalculator />
+          <QRCode
+          id="123456"
+          value="123456"
+          size={280}
+          level={"H"}
+          includeMargin={true}
+          />
+         <a onClick={downloadQR}> Download QR </a>
+
         </MovieContext.Provider>
       </div>
     </>
