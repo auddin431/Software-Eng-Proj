@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "./node_modules/.bin/jasmine-node spec"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -15,6 +16,7 @@
     "express": "^4.16.4",
     "http-errors": "^1.6.3",
     "jade": "~1.11.0",
+    "jasmine": "^3.7.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.2",
     "morgan": "~1.9.1"
