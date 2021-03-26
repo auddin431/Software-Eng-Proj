@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ImgBg from '../../images/popcornBg.jpg'
 
-//element files are for styling
+//Element files are for styling
 //ImgBg is Image Background. Could have called it whatever like taco
 export const HeroContainer = styled.div`
     background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url(${ImgBg});
