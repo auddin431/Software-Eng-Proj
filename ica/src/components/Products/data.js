@@ -11,7 +11,7 @@ import product10 from '../../images/coca-cola.jpg'
 import product11 from '../../images/dasani.jpg'
 import product12 from '../../images/budlight.jpg'
 
-//this is an array of objects. each object in the {}
+//this is an array of objects. each object in the {}. Above are the images imported for all the products
 export const productData = [
     {
         alt: 'Appetizer',
@@ -111,56 +111,3 @@ export const productData = [
     } 
 ];
 
-export const productDataTwo = [
-    {
-        alt: 'Entree',
-        name: 'Hotdog',
-        price: '$4.99',
-        desc: 'Who wants a weiner?',
-        img: product4,
-        button: 'Add to Cart'
-    },
-    {
-        alt: 'Entree',
-        name: 'Spaghetti & Meatballs',
-        price: '$11.99',
-        desc: "Perfectly cooked spaghetti topped with tangy tomato sauce pairs with our seasoned Italian meatballs",
-        img: product5,
-        button: 'Add to Cart'
-    }, 
-    {
-        alt: 'Entree',
-        name: 'BLT Sandwich',
-        price: '$5.99',
-        desc: 'Made with bacon, lettuce, and tomatoes between two thick slices of toasted bread, this sandwich is a simple dinner and an all around favorite!',
-        img: product6,
-        button: 'Add to Cart'
-    } 
-];
-
-export const productDataThree = [
-    {
-        alt: 'Dessert',
-        name: 'Oreo Milkshake',
-        price: '$4.99',
-        desc: 'Ice cream, milk, chocolate sauce, and Oreos blended together, topped with whipped cream',
-        img: product7,
-        button: 'Add to Cart'
-    },
-    {
-        alt: 'Dessert',
-        name: 'Bubble Tea',
-        price: '$5.99',
-        desc: "Who doesn't like Bubble Tea?",
-        img: product8,
-        button: 'Add to Cart'
-    }, 
-    {
-        alt: 'Dessert',
-        name: 'Cup of Dirt',
-        price: '$2.99',
-        desc: 'The nostalgia is real with this man!',
-        img: product9,
-        button: 'Add to Cart'
-    } 
-];

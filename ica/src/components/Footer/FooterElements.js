@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
+//This is all of the styling for the components on the Footer
+
 export const FooterContainer = styled.footer`
     background-color: #0d0909;
 `;

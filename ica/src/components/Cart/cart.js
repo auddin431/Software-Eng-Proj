@@ -1,6 +1,12 @@
 import React, {useState} from 'react'
 import {CartBtn, CartIcon} from '../Products/ProductsElements';
+
+
 /*
+
+//This was created to test other options to get our Cart System working on the Food Ordering page
+//We found it ineffective but left the code here in case we wanted to revert back to it and try again
+
 const CartInfo = {
     count: 0,
     cart: []
