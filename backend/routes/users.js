@@ -15,8 +15,8 @@ router.get('/', function(req, res, next) {
 */
 router.post('/register', function(req, res) {
   console.log("Recived registration request...");
-  const {email, password} = req.body;
-  const user = new User({email, password});
+  const {first_name, last_name, email, password} = req.body;
+  const user = new User({first_name, last_name, email, password});
   user.save(function(err) {
     if(err) {
       res.status(500).send("Error registering new user, please try again.");

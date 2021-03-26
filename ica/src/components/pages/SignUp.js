@@ -54,17 +54,22 @@ export default function SignUp() {
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
     fetch('http://localhost:5000/users/register', {
       method: 'POST',
-      body: JSON.stringify({email: email,
-                            password: password}),
+      body: JSON.stringify({
+        first_name: first_name, 
+        last_name: last_name, 
+        email: email,
+        password: password}),
       headers: {'Content-Type': 'application/json'}
     }).then(result => {
       if(result.status == 200) {
-        console.log("Registered!")
+        console.log("Registered!");
       } else {
         const error = new Error(result.error);
         throw error;
@@ -89,6 +94,8 @@ export default function SignUp() {
               <TextField
                 autoComplete="fname"
                 name="firstName"
+                value={first_name}
+                onInput={e=>setFirstName(e.target.value)}
                 variant="outlined"
                 required
                 fullWidth
@@ -99,6 +106,8 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                value={last_name}
+                onInput={e=>setLastName(e.target.value)}
                 variant="outlined"
                 required
                 fullWidth
