@@ -9,6 +9,19 @@ const saltRounds = 10;
     in name and other relevant information going forward.
 */
 const UserSchema = new mongoose.Schema({
+    account_type: {
+        type: String,
+        required: true,
+        default: "moviegoer"
+    },
+    first_name: {
+        type: String,
+        required: true
+    },
+    last_name: {
+        type: String,
+        required: true
+    },
     email: {
         type: String, 
         required: true, 
@@ -30,7 +43,7 @@ UserSchema.pre('save', function(next) {
         const user = this;
         bcrypt.hash(user.password, saltRounds, function(err, hashedPassword) {
             if(err) {
-                console.log(`Error hashing password for user ${user.name}`);
+                console.log(`Error hashing password for user ${user.email}`);
                 next(err);
             } else {
                 user.password = hashedPassword;
