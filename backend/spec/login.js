@@ -18,8 +18,8 @@ describe("User Account Functionality", function() {
                 password: "_test_pass_"
             }
             chai.request(backend).post('/users/register').send(user).end(function(err, res) {
-            expect(res).to.have.status(200);    
-            res.body.should.be.a('object');
+                expect(res).to.have.status(200);
+                res.body.should.be.a('object');
             });
         });
     });
