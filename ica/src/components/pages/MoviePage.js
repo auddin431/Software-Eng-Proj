@@ -118,7 +118,8 @@ function MoviePage() {
                 </div>
                 <div className="movie-info">
                     <h1>{movie.title}</h1>
-                    <h5><RiMovie2Fill /> {getRuntime(movie.runtime)}
+                    <h5>
+                        <RiMovie2Fill style={{verticalAlign: 'bottom'}} /> {getRuntime(movie.runtime)}
                     </h5>
                     <hr></hr>
                     <h3>Overview</h3>
@@ -127,7 +128,7 @@ function MoviePage() {
                         <h4>Directed by {director}</h4>
                     </div>
                     <a href={trailer} target="_blank" rel="noreferrer">
-                        <h2>Trailer <FaYoutube /></h2>
+                        <h2>Trailer <FaYoutube style={{verticalAlign: 'bottom'}} /></h2>
                     </a>
                 </div>
             </div>
