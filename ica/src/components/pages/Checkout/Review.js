@@ -13,7 +13,7 @@ const products = [
   { name: 'Drink: Coca-Cola', desc: 'Classic Coke flavor that is refreshing', price: '$2.50' },
 
 ];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+const addresses = ['1 Rutgers Way', 'Rutgersville', 'Rutgers', '12345', 'USA'];
 const payments = [
   { name: 'Card type', detail: 'Doge' },
   { name: 'Card holder', detail: 'John Reiner Sloan' },
