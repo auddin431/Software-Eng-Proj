@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -52,6 +52,33 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    fetch('http://localhost:5000/users/register', {
+      method: 'POST',
+      body: JSON.stringify({
+        first_name: first_name, 
+        last_name: last_name, 
+        email: email,
+        password: password}),
+      headers: {'Content-Type': 'application/json'}
+    }).then(result => {
+      if(result.status == 200) {
+        console.log("Registered!");
+      } else {
+        const error = new Error(result.error);
+        throw error;
+      }
+    }).catch(error => {
+      console.error(error);
+      console.log("Failed to register.");
+    });
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -67,6 +94,8 @@ export default function SignUp() {
               <TextField
                 autoComplete="fname"
                 name="firstName"
+                value={first_name}
+                onInput={e=>setFirstName(e.target.value)}
                 variant="outlined"
                 required
                 fullWidth
@@ -77,6 +106,8 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                value={last_name}
+                onInput={e=>setLastName(e.target.value)}
                 variant="outlined"
                 required
                 fullWidth
@@ -88,6 +119,8 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                value={email}
+                onInput={e=>setEmail(e.target.value)}
                 variant="outlined"
                 required
                 fullWidth
@@ -107,6 +140,8 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={password}
+                onInput={e=>setPassword(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -122,6 +157,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleSubmit}
           >
             Sign Up
           </Button>

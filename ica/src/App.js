@@ -28,8 +28,6 @@ function App() {
       <Route exact path="/Checkout" component={Checkout}></Route>
       <Route exact path="/Dashboard" component={Dashboard}></Route>
       <Route exact path="/AccountPage" component={AccountHome}></Route>
-      
-      
       <Route exact path="/SeatSelection" component={SeatSelection}></Route>
       <Route exact path="/TicketPurchases" component={TicketPurchases}></Route>
       <Route exact path="/FDPurchases" component={FDPurchases}></Route>

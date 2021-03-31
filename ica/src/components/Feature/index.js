@@ -1,6 +1,8 @@
 import React from 'react';
 import { FeatureContainer, FeatureButton } from './FeatureElements';
 
+
+//This function was to have a featured product on our Food Selection page. We decided as a team to forgo this
 const Feature = () => {
     return (
         <FeatureContainer>

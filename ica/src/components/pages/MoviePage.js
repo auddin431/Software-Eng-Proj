@@ -4,14 +4,13 @@ import './MoviePage.css';
 import MovieCast from "../MovieCast";
 import {FaYoutube} from 'react-icons/fa';
 import { RiMovie2Fill } from "react-icons/ri";
-
 const IMG_SRC = 'https://image.tmdb.org/t/p/w1280';
 const MOVIE_API = "https://api.themoviedb.org/3/movie/";
 const API_KEY = "?api_key=" + process.env.REACT_APP_TMDB_API_KEY;
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get('id')
+const id = urlParams.get('id');
 //console.log(id);
 
 function getRuntime(runtime) {
@@ -61,7 +60,7 @@ function MoviePage() {
         fetch(MOVIE_API + id + "/credits" + API_KEY)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                //console.log(data);
                 setCast(data.cast);
             });
     }, []);
@@ -77,6 +76,24 @@ function MoviePage() {
                     if (data.crew[i].job === "Director") {
                         //console.log(data.crew[i].job);
                         setDirector(data.crew[i].name);
+                        break;
+                    }
+                }
+            });
+    }, []);
+
+    const [rating, setRating] = useState([]);
+    useEffect(() => {
+        fetch(MOVIE_API + id + "/release_dates" + API_KEY)
+            .then((res) => res.json())
+            .then((data) => {
+                //console.log(data);
+                //setRating(data);
+                var i;
+                for (i = 0; i < data.results.length; i++) {
+                    if (data.results[i].iso_3166_1 === "US") {
+                        //console.log(data.results[i]);
+                        setRating(data.results[i].release_dates[0].certification);
                         break;
                     }
                 }
@@ -119,7 +136,8 @@ function MoviePage() {
                 </div>
                 <div className="movie-info">
                     <h1>{movie.title}</h1>
-                    <h5><RiMovie2Fill /> {getRuntime(movie.runtime)}
+                    <h5>
+                        <RiMovie2Fill style={{verticalAlign: 'bottom'}} /> {getRuntime(movie.runtime)}  |   {rating}
                     </h5>
                     <hr></hr>
                     <h3>Overview</h3>
@@ -128,7 +146,7 @@ function MoviePage() {
                         <h4>Directed by {director}</h4>
                     </div>
                     <a href={trailer} target="_blank" rel="noreferrer">
-                        <h2>Trailer <FaYoutube /></h2>
+                        <h2>Trailer <FaYoutube style={{verticalAlign: 'bottom'}} /></h2>
                     </a>
                 </div>
             </div>

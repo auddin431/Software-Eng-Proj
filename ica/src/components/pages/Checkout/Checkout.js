@@ -19,7 +19,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Not Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        ICA
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -121,7 +121,7 @@ export default function Checkout() {
                 </Typography>
                 <Typography variant="subtitle1">
                   Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                  send you an update when your order has confirmed.
                 </Typography>
               </React.Fragment>
             ) : (

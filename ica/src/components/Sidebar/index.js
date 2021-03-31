@@ -2,9 +2,9 @@ import React from 'react'
 import { SidebarContainer, Icon, CloseIcon, SidebarMenu, SidebarLink, SidebarRoute, SideBtnWrap } from './SidebarElements'; 
 import {Link} from 'react-scroll';
 
-//to="/" inside the quotations, would have to make own links to go to other pages
-//add onClick={toggle} if want to click on the whole sidebar to close it
-//currently, only clicking on the 'x' icon let's that happen
+//This function is for the Sidebar. The toggle function is passed in so that the 'X' can close the Sidebar
+//'X' is a React Icon
+//Link component used to scroll when Appetizer, Entree, Drink, and Dessert are clicked. They will scroll to their respective parts of the Menu
 const Sidebar = ({isOpen, toggle}) => {
     return (
         <SidebarContainer isOpen={isOpen} >
@@ -18,7 +18,7 @@ const Sidebar = ({isOpen, toggle}) => {
                 <SidebarLink><Link  to="Dessert" spy={true} smooth={true}>Desserts</Link></SidebarLink>
             </SidebarMenu>
             <SideBtnWrap>
-                <SidebarRoute to="/">Checkout</SidebarRoute>
+                <SidebarRoute to="/Checkout" target="_blank">Checkout</SidebarRoute>
             </SideBtnWrap>
         </SidebarContainer>
     )

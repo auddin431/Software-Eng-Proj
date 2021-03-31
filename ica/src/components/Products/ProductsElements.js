@@ -2,6 +2,8 @@ import styled from 'styled-components';
 //import {FaShoppingCart} from 'react-icons/fa';
 import {RiShoppingCartLine} from 'react-icons/ri';
 
+//These are all the styled componenets for the Products.js file. We have two shopping cart icons in case we want to change how it looks
+
 export const ProductsContainer = styled.div`
     width: 100vw;
     min-height: 100vh;
@@ -92,6 +94,8 @@ export const CartBtn = styled.div`
 `;
 
 /*
+
+//This is commented out since it is not being used. As mentioned before, we are not including a remove from cart feature on the Food Ordering page but rather the Checkout page
 export const MinusBtn = styled.div`
 font-size: 1rem;
 padding: 0.1rem 1rem;

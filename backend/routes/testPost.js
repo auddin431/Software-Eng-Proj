@@ -26,7 +26,7 @@ router.post("/", function (req, res, next) {
     console.log("Order was saved");
   });
   Order.find({}, (err, orders) => {
-    if (err) return onsole.error(err);
+    if (err) return console.error(err);
     console.log(orders);
   });
 });
