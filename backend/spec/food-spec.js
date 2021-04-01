@@ -5,6 +5,8 @@ let jasmine = require("jasmine");
 let should = chai.should();
 let Order = require("../models/Order");
 
+chai.use(chaiHttp);
+
 describe("Food Order System", function() {
     describe("Saving Orders", function() {
         it("save orders to a database", function() {

@@ -1,13 +1,15 @@
 var express = require("express");
 const mongoose = require("mongoose");
-const url = "mongodb://127.0.0.1:27017/food_order";
+const url = process.env.MONGODB_URI_FOOD;
 var router = express.Router();
-const Order = require("../models/Order");
+const OrderModel = require("../models/Order");
 
-mongoose.connect(url, {
+const connection = mongoose.createConnection(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+Order = connection.model('Order', OrderModel.schema);
 
 router.post("/", function (req, res, next) {
   console.log(req.body.name);
@@ -22,4 +24,5 @@ router.post("/", function (req, res, next) {
     console.log(orders);
   });
 });
+
 module.exports = router;
