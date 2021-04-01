@@ -10,13 +10,13 @@ chai.use(chaiHttp);
 describe("User Account Functionality", function() {
     describe("/POST User Account Creation", function() {
         it("creates an account", function() {
-            let user = {
+            const user = new User({
                 account_type: "_test_account_type_",
                 first_name: "_test_first_name_",
                 last_name: "_test_last_name_",
                 email: "_test_email_",
                 password: "_test_pass_"
-            }
+            });
             chai.request(backend).post('/users/register').send(user).end(function(err, res) {
                 expect(res).to.have.status(200);
             });

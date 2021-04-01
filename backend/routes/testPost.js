@@ -2,20 +2,12 @@ var express = require("express");
 const mongoose = require("mongoose");
 const url = "mongodb://127.0.0.1:27017/food_order";
 var router = express.Router();
+const Order = require("../models/Order");
 
 mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-const foodSchema = new mongoose.Schema(
-  {
-    name: String,
-    price: String,
-  },
-  { collection: "orders" }
-);
-const Order = mongoose.model("Order", foodSchema, "orders");
 
 router.post("/", function (req, res, next) {
   console.log(req.body.name);
