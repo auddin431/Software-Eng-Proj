@@ -19,7 +19,17 @@ describe("User Account Functionality", function() {
             }
             chai.request(backend).post('/users/register').send(user).end(function(err, res) {
                 expect(res).to.have.status(200);
-                res.body.should.be.a('object');
+            });
+        });
+    });
+    describe("/POST Authenticate User", function() {
+        it("authenticates an account", function() {
+            let auth = {
+                email: "_test_email_",
+                password: "_test_pass_"
+            }
+            chai.request(backend).post('/users/authenticate').send(auth).end(function(err, res) {
+                expect(res).to.have.a.status(200);
             });
         });
     });
