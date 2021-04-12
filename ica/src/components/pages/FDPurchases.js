@@ -17,20 +17,13 @@ const FDPurchases = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto ml-auto">
                 <Nav.Link href="/AccountPage">Account Home</Nav.Link>
-                <Nav.Link href="/PurchaseHistory">Purchase History</Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Navbar>
-
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mr-auto ml-auto">
                 <Nav.Link href="/TicketPurchases">Ticket Purchase History</Nav.Link>
                 <Nav.Link href="/FDPurchases">Food and Drinks Purchase History</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
+
+          
 
           <h1>Food and Drinks Purchase History</h1>
           <div className="PH-Transaction">
