@@ -14,6 +14,7 @@ const NavBar = () => {
           <Nav.Link href="/MovieSelection">Movies</Nav.Link>
           <Nav.Link href="/FoodSelection">Dine-In Menu</Nav.Link>
           <Nav.Link href="/AccountPage">My Tickets</Nav.Link>
+          <Nav.Link href="/ManageMovies">Manage Movies</Nav.Link>
         </Nav>
         <Nav>
           <Nav.Link eventKey={2} href="/SignUp">

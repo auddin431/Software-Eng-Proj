@@ -11,11 +11,11 @@ import { CssBaseline } from "@material-ui/core";
 import Checkout from "./components/pages/Checkout/Checkout";
 import Dashboard from "./components/pages/Dashboard/Dashboard";
 import AccountHome from "./components/pages/AccountPage";
-
-
 import SeatSelection from "./components/SeatSelection/SeatSelection";
 import TicketPurchases from "./components/pages/TicketPurchases";
 import FDPurchases from "./components/pages/FDPurchases";
+import ManageMovies from "./components/pages/ManageMovies";
+
 function App() {
   return (
     <div>
@@ -31,6 +31,7 @@ function App() {
       <Route exact path="/SeatSelection" component={SeatSelection}></Route>
       <Route exact path="/TicketPurchases" component={TicketPurchases}></Route>
       <Route exact path="/FDPurchases" component={FDPurchases}></Route>
+      <Route exact path="/ManageMovies" component={ManageMovies}></Route>
     </div>
   );
 }
