@@ -17,7 +17,8 @@ const AccountHome = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto ml-auto">
                     <Nav.Link href="/AccountPage">Account Home</Nav.Link>
-                    <Nav.Link href="/TicketPurchases">Purchase History</Nav.Link>
+                    <Nav.Link href="/TicketPurchases">Ticket Purchase History</Nav.Link>
+                    <Nav.Link href="/FDPurchases">Food and Drinks Purchase History</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Navbar>

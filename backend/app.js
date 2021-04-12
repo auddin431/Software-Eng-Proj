@@ -5,25 +5,15 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
-var mdb = require('mongoose');
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var testAPIRouter = require("./routes/testAPI");
 var testPostRouter = require("./routes/testPost");
-
+var moviesRouter = require("./routes/movies");
 var app = express();
 require('dotenv').config();
-var connection_uri = process.env.MONGODB_URI;
-const port = 5000
 
-mdb.connect(connection_uri, function(err) {
-  if (err) {
-    console.log('Error: failed to connect to Mongoose Database')
-    throw err;
-  } else {
-    console.log('Successfully connected to Mongoose Database');
-  }
-});
+const port = 5000
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -39,7 +29,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/testAPI", testAPIRouter);
-// app.use("/testPost", testPostRouter);
+app.use("/testPost", testPostRouter);
+app.use("/movies", moviesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

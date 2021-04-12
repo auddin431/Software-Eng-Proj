@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import {FaTimes} from 'react-icons/fa';
 
+//These are the styled components for the Sidebar
 
 //function within. if true, set right to 0, otherwise set it to -1000px (offscreen)
 export const SidebarContainer = styled.aside`

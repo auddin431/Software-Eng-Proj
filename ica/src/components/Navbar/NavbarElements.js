@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 import { GiPopcorn } from 'react-icons/gi'; 
 
+//This is the styling for all the Navbar components. This included a React Icon, which was the popcorn icon. We decided to not follow through with this elsewhere in the project, for now
 
 export const Nav = styled.nav`
     background: #383838;

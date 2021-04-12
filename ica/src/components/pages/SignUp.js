@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { PromiseProvider } from 'mongoose';
 
 function Copyright() {
   return (
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp(props) {
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,14 +63,14 @@ export default function SignUp() {
     fetch('http://localhost:5000/users/register', {
       method: 'POST',
       body: JSON.stringify({
-          first_name: first_name, 
-          last_name: last_name, 
-          email: email,
-          password: password}),
+        first_name: first_name, 
+        last_name: last_name, 
+        email: email,
+        password: password}),
       headers: {'Content-Type': 'application/json'}
     }).then(result => {
       if(result.status == 200) {
-        console.log("Registered!")
+        console.log("Registered!");
       } else {
         const error = new Error(result.error);
         throw error;
@@ -78,6 +79,7 @@ export default function SignUp() {
       console.error(error);
       console.log("Failed to register.");
     });
+    props.history.push("/");
   }
 
   return (

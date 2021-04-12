@@ -1,8 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/Users.js');
+var UserModel = require('../models/Users.js');
 var jwt = require('jsonwebtoken');
 const authToken = require('../middleware.js');
+var mdb = require('mongoose');
+require('dotenv').config();
+
+var connection_uri = process.env.MONGODB_URI;
+var login_conn = mdb.createConnection(connection_uri, function(err) {
+  if (err) {
+    console.log('Error: failed to connect to Mongoose Database')
+    throw err;
+  } else {
+    console.log('Successfully connected to Mongoose Database');
+  }
+});
+var User = login_conn.model('User', UserModel.schema);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -20,12 +33,12 @@ router.post('/register', function(req, res) {
   user.save(function(err) {
     if(err) {
       res.status(500).send("Error registering new user, please try again.");
+      console.log(err);
     } else {
       res.status(200).send("User now successfully regsitered!");
     }
   });
 });
-
 
 /*
   Used to authenticate a user who is attempting to login. This
