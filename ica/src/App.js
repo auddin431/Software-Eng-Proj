@@ -15,7 +15,7 @@ import SeatSelection from "./components/SeatSelection/SeatSelection";
 import TicketPurchases from "./components/pages/TicketPurchases";
 import FDPurchases from "./components/pages/FDPurchases";
 import ManageMovies from "./components/pages/ManageMovies";
-import AuthUser from "./AuthUser";
+import AuthUser from "./components/pages/AuthUser";
 
 function App() {
   return (

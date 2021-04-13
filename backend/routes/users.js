@@ -59,9 +59,8 @@ router.post('/authenticate', function(req, res) {
         } else if(!match) {
           res.status(401).json({error: 'Email or password is incorrect - Code 401'});
         } else {
-          const payload = {email};
-          const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '30m'});
-          res.cookie('token', token, {httpOnly: true}).sendStatus(200);
+          const token = jwt.sign({email}, process.env.JWT_SECRET, {expiresIn: '15m'});
+          res.cookie('token', token, {httpOnly: true, secure: true, sameSite: true}).sendStatus(200);
         }
       });
     }
