@@ -15,6 +15,7 @@ import SeatSelection from "./components/SeatSelection/SeatSelection";
 import TicketPurchases from "./components/pages/TicketPurchases";
 import FDPurchases from "./components/pages/FDPurchases";
 import ManageMovies from "./components/pages/ManageMovies";
+import AuthUser from "./AuthUser";
 
 function App() {
   return (
@@ -22,16 +23,16 @@ function App() {
       <Route exact path="/SignIn" component={SignIn}></Route>
       <Route exact path="/SignUp" component={SignUp}></Route>
       <Route exact path="/" component={Home}></Route>
-      <Route exact path="/MovieSelection" component={MovieSelection}></Route>
+      <Route exact path="/MovieSelection" component={AuthUser(MovieSelection)}></Route>
       <Route exact path="/MoviePage" component={MoviePage}></Route>
-      <Route exact path="/FoodSelection" component={FoodSelection}></Route>
-      <Route exact path="/Checkout" component={Checkout}></Route>
-      <Route exact path="/Dashboard" component={Dashboard}></Route>
-      <Route exact path="/AccountPage" component={AccountHome}></Route>
-      <Route exact path="/SeatSelection" component={SeatSelection}></Route>
-      <Route exact path="/TicketPurchases" component={TicketPurchases}></Route>
-      <Route exact path="/FDPurchases" component={FDPurchases}></Route>
-      <Route exact path="/ManageMovies" component={ManageMovies}></Route>
+      <Route exact path="/FoodSelection" component={AuthUser(FoodSelection)}></Route>
+      <Route exact path="/Checkout" component={AuthUser(Checkout)}></Route>
+      <Route exact path="/Dashboard" component={AuthUser(Dashboard)}></Route>
+      <Route exact path="/AccountPage" component={AuthUser(AccountHome)}></Route>
+      <Route exact path="/SeatSelection" component={AuthUser(SeatSelection)}></Route>
+      <Route exact path="/TicketPurchases" component={AuthUser(TicketPurchases)}></Route>
+      <Route exact path="/FDPurchases" component={AuthUser(FDPurchases)}></Route>
+      <Route exact path="/ManageMovies" component={AuthUser(ManageMovies)}></Route>
     </div>
   );
 }
