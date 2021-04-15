@@ -5,7 +5,7 @@ const authToken = function(req, res, next) {
     if(!token) {
       res.status(401).send('Unauthorized: No token found');
     } else {
-      jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
+        jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
         if(err) {
           res.status(401).send('Unauthorized: Unable to authorize token');
         } else {
