@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../../App.css";
 import "./PurchaseHistory.css";
+// link to AccountInformation.js
 
 const FDPurchases = () => {
   return (
@@ -24,6 +25,7 @@ const FDPurchases = () => {
           </Navbar>
 
           
+      
 
           <h1>Food and Drinks Purchase History</h1>
           <div className="PH-Transaction">
@@ -33,18 +35,13 @@ const FDPurchases = () => {
             <div className="PH-container">Item and Quantity: 5 Large Sodas</div>
             <div className="PH-container">Total Cost: $30.00</div>
           </div>
-
-          <div className="PH-Transaction">
-            <div className="PH-container">Date: 3/22/2021</div>
-            <div className="PH-container">Item and Quantity: 3 Hot Dogs</div>
-            <div className="PH-container">Item and Quantity: 2 Large Sodas</div>
-            <div className="PH-container">Total Cost: $20.00</div>
-          </div>
+      
 
         </div>
       </div>
     </>
   );
 };
+
 
 export default FDPurchases;

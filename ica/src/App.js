@@ -15,6 +15,7 @@ import SeatSelection from "./components/SeatSelection/SeatSelection";
 import TicketPurchases from "./components/pages/TicketPurchases";
 import FDPurchases from "./components/pages/FDPurchases";
 import ManageMovies from "./components/pages/ManageMovies";
+import AccountInfoForm from "./components/pages/AccountInfoForm";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       <Route exact path="/TicketPurchases" component={TicketPurchases}></Route>
       <Route exact path="/FDPurchases" component={FDPurchases}></Route>
       <Route exact path="/ManageMovies" component={ManageMovies}></Route>
+      <Route exact path="/AccountInfoForm" component={AccountInfoForm}></Route>
     </div>
   );
 }
