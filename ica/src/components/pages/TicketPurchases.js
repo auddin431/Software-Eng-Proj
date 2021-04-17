@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../../App.css";
 import "./PurchaseHistory.css";
+// link to AccountInformation.js
 
 const TicketPurchases = () => {
   return (
@@ -62,5 +63,8 @@ const TicketPurchases = () => {
     </>
   );
 };
+
+// Event: A QR code button is clicked ==> Open QR Code 
+    // Take the user to a new page with the QR Code
 
 export default TicketPurchases;
