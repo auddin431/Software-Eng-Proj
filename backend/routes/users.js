@@ -61,6 +61,7 @@ router.post('/authenticate', function(req, res) {
         } else {
           const token = jwt.sign({usrEmail: email}, process.env.JWT_SECRET, {expiresIn: '15m'});
           res.cookie('token', token, {httpOnly: true, secure: true}).sendStatus(200);
+          res.cookie('email', email, {maxAge: '15m'});
         }
       });
     }
@@ -73,6 +74,7 @@ router.post('/authenticate', function(req, res) {
 */
 router.get('/checkToken', authToken, function(req, res) {
   res.sendStatus(200);
+  res.cookie('email', req.email, {maxAge: '15m'});
 });
 
 module.exports = router;

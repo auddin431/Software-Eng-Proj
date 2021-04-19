@@ -6,7 +6,7 @@ export default function AuthUser(SecureComponent) {
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
-        fetch('/users/checkToken').then(res => {
+        fetch('http://localhost:5000/users/checkToken').then(res => {
             if(res.status == 200) {
                 setLoading(false);
             } else {
