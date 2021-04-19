@@ -14,6 +14,7 @@ const products = [
   { name: 'Drink: Coca-Cola', desc: 'Classic Coke flavor that is refreshing', price: '$2.50' },
 
 ];
+
 const addresses = ['1 Rutgers Way', 'Rutgersville', 'Rutgers', '12345', 'USA'];
 const payments = [
   { name: 'Card type', detail: 'Doge' },
@@ -34,8 +35,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Edit() {
+export default function Edit(props) {
   const classes = useStyles();
+
+
+
+  //for()
 
   return (
     <React.Fragment>

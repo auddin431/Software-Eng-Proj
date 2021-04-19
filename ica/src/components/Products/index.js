@@ -30,7 +30,7 @@ const Products = ({heading, data}) => {
                 },
                 body: JSON.stringify(order)
              }
-            let response = await fetch("http://localhost:9000/testPost/", reqOptions);
+            let response = await fetch("http://localhost:5000/testPost/", reqOptions);
         }
         postDatabase(productsInfo)
     };

@@ -21,7 +21,7 @@ router.post("/", function (req, res, next) {
   });
   Order.find({}, (err, orders) => {
     if (err) return console.error(err);
-    console.log(orders);
+    //console.log(orders);
   });
 });
 

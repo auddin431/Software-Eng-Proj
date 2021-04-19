@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -68,10 +68,10 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ['Edit your Order','Billing address', 'Payment details', 'Review your order'];
 
-function getStepContent(step) {
+function getStepContent(step, response) {
   switch (step) {
     case 0:
-      return <Edit />
+      return <Edit response = {response} />
     case 1:
       return <AddressForm />;
     case 2:
@@ -84,6 +84,30 @@ function getStepContent(step) {
 }
 
 export default function Checkout() {
+
+ const [test, setTest] = useState([]);
+
+  fetch('http://localhost:5000/Checkout/', {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'}
+  }).then(result => {
+    if(result.status == 200) { //this was originally equal to 200
+      result.json().then(res => {
+        console.log(res.data)
+        setTest(res.data)
+      })
+      
+    } else {
+      const error = new Error(result.error);
+      throw error;
+    }
+  }).catch(error => {
+    console.error(error);
+    console.log("Failed");
+  });
+
+
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
