@@ -16,7 +16,7 @@ Order = connection.model('Order', OrderModel.schema);
 router.get('/', function(req, res, next) {
     Order.find({}, (err, orders) => {
         if (err) return console.error(err);
-        res.send({data: orders});
+        res.json({data: orders});
         //console.log(orders);
       });
     //res.send({orders});

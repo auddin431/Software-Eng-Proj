@@ -71,7 +71,7 @@ const steps = ['Edit your Order','Billing address', 'Payment details', 'Review y
 function getStepContent(step, response) {
   switch (step) {
     case 0:
-      return <Edit response = {response} />
+      return <Edit products = {response} />
     case 1:
       return <AddressForm />;
     case 2:
@@ -85,6 +85,7 @@ function getStepContent(step, response) {
 
 export default function Checkout() {
 
+  let test2 = [];
  const [test, setTest] = useState([]);
 
   fetch('http://localhost:5000/Checkout/', {
@@ -93,10 +94,13 @@ export default function Checkout() {
   }).then(result => {
     if(result.status == 200) { //this was originally equal to 200
       result.json().then(res => {
-        console.log(res.data)
-        setTest(res.data)
+        res.data.map(el => {
+          test2.push(el);
+        })
+        //setTest(res.data)
+        console.log(res)
+        console.log(test2)
       })
-      
     } else {
       const error = new Error(result.error);
       throw error;
@@ -154,7 +158,7 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {getStepContent(activeStep, test2)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>

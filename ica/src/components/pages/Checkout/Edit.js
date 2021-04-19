@@ -37,20 +37,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Edit(props) {
   const classes = useStyles();
-
-
-
-  //for()
-
+  console.log(props.products);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
+        {props.products.map((product) => (
           <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
+            <ListItemText primary={product.name} />
             <Typography variant="body2">{product.price}</Typography>
             <Button className={classes.button}>+</Button>
             <Button className={classes.button}>-</Button>
