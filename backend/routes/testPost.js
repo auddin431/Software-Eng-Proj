@@ -1,6 +1,7 @@
 var express = require("express");
 const mongoose = require("mongoose");
-const url = process.env.MONGODB_URI_FOOD;
+//const url = process.env.MONGODB_URI_FOOD;
+const url = "mongodb+srv://abdul:abdultest@clusterica.qyubt.mongodb.net/abdul";
 var router = express.Router();
 const OrderModel = require("../models/Order");
 
@@ -9,7 +10,7 @@ const connection = mongoose.createConnection(url, {
   useUnifiedTopology: true,
 });
 
-Order = connection.model('Order', OrderModel.schema);
+var Order = connection.model("Order", OrderModel.schema);
 
 router.post("/", function (req, res, next) {
   console.log(req.body.name);
