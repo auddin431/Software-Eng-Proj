@@ -9,7 +9,6 @@ import { PromiseProvider } from 'mongoose';
 import AddMovie from '../AddMovie';
 
 export default function ManageMovies() {
-    //const ids = ["13223", "76341", "527774", "791373", "299534", "157336", "402900", "359724", "155", "7446", "330459", "339403", "168259", "389165", "106646"];
     const table = [
         ["13223","Gran Torino"],
         ["76341","Mad Max: Fury Road"],
@@ -43,7 +42,31 @@ export default function ManageMovies() {
                                                     <td key={j}>{movieinfo}</td>
                                                 ))
                                             }
-                                            <Button variant="danger">Remove Movie</Button>
+                                            <Button 
+                                                variant="danger"
+                                                onClick={(event) => {
+                                                    console.log(movies);
+                                                    event.preventDefault();
+                                                    fetch('http://localhost:5000/movies/deletemovie', {
+                                                      method: 'POST',
+                                                      body: JSON.stringify({
+                                                        movieid: movies[0]}),
+                                                      headers: {'Content-Type': 'application/json'}
+                                                    }).then(result => {
+                                                      if(result.status === 200) {
+                                                        console.log("Deleted!");
+                                                      } else {
+                                                        const error = new Error(result.error);
+                                                        throw error;
+                                                      }
+                                                    }).catch(error => {
+                                                      console.error(error);
+                                                      console.log("Failed to deleted.");
+                                                    });
+                                                  }}
+                                            >
+                                                Remove Movie
+                                            </Button>
                                         </tr>
                                     ))
                                 }
