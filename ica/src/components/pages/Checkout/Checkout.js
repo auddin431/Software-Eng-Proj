@@ -167,7 +167,7 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep, test)}
+                {test && getStepContent(activeStep, test)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>

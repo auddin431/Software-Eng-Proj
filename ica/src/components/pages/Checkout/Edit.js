@@ -7,6 +7,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
+/*
 const products = [
   { name: "Avengers: Endgame", desc: "One ticket", price: "$12.00" },
   {
@@ -27,6 +28,7 @@ const products = [
     price: "$2.50",
   },
 ];
+*/
 
 const addresses = ["1 Rutgers Way", "Rutgersville", "Rutgers", "12345", "USA"];
 const payments = [
@@ -55,8 +57,53 @@ export default function Edit(props) {
     var yes = parseFloat(product.price.slice(1));
     price += yes;
   });
-  price = "$" + price;
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+  price = formatter.format(price);
+  //price = "$" + price;
   console.log(props.products);
+
+  const addToCart = (products) => {
+    
+    const postDatabase = async (order) => {
+        const reqOptions = {
+            method: "POST",
+            headers: {
+               Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(order)
+         }
+        let response = await fetch("http://localhost:5000/Checkout/addItem", reqOptions);
+    }
+    postDatabase(products)
+};
+
+const delToCart = (products) => {
+  
+  const postDatabase = async (order) => {
+    
+    fetch('http://localhost:5000/Checkout/deleteItem', {
+      method: 'POST',
+      body: JSON.stringify({order}),
+      headers: {'Content-Type': 'application/json'}
+    }).then(result => {
+      if(result.status === 200) {
+        console.log("Deleted!");
+      } else {
+        const error = new Error(result.error);
+        throw error;
+      }
+    }).catch(error => {
+      console.error(error);
+      console.log("Failed to delete.");
+    });
+  
+  }
+  postDatabase(products)
+};
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -68,8 +115,8 @@ export default function Edit(props) {
             <ListItem className={classes.listItem} key={product._id}>
               <ListItemText primary={product.name} />
               <Typography variant="body2">{product.price}</Typography>
-              <Button className={classes.button}>+</Button>
-              <Button className={classes.button}>-</Button>
+              <Button className={classes.button} onClick={() => addToCart(product)} href="/Checkout">+</Button>
+              <Button className={classes.button} onClick={() => delToCart(product)} href="/Checkout">-</Button>
             </ListItem>
           ))}
         <ListItem className={classes.listItem}>
