@@ -18,9 +18,11 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-scroll": "^1.8.1",
+    "react-stripe-checkout": "^2.6.3",
     "readable-stream": "^3.6.0",
     "recharts": "^2.0.8",
     "regexp-clone": "^1.0.0",
+    "stripe": "^8.145.0",
     "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0"
   },
