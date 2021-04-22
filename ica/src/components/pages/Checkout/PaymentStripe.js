@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+}));
 
 class PaymentStripe extends Component {
     render() {
@@ -11,9 +21,9 @@ class PaymentStripe extends Component {
                 token={token => console.log(token)}
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
             >
-                <button className="btn">
+                <Button variant="contained" color="default" disableElevation>
                     Enter Information
-                </button>
+                </Button>
             </StripeCheckout>
         )
     }
