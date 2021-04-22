@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import NavBar from "./NavBar";
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import { PromiseProvider } from 'mongoose';
 import AddMovie from '../AddMovie';
+import './ManageMovies.css';
 
 export default function ManageMovies() {
     const table = [
@@ -15,6 +15,17 @@ export default function ManageMovies() {
         ["527774","Raya and the Last Dragon"],
         ["791373", "Zack Snyder's Justice League"]
     ]
+
+    const [movies, setMovies] = useState('');
+
+    useEffect(() => {
+        fetch('http://localhost:5000/movies/nowshowing')
+        .then((res) => res.json())
+        .then((data) => {
+            setMovies(data);
+            console.log(data);
+        })
+    }, []);
 
     return (
         <>
@@ -34,14 +45,11 @@ export default function ManageMovies() {
                             </thead>
                             <tbody>
                                 {
-                                    table.map((movies,i) =>(
+                                    movies && movies.map((movies,i) =>(
                                         <tr key={i}>
-                                            <th>{i}</th>
-                                            {
-                                                movies.map((movieinfo,j) => (
-                                                    <td key={j}>{movieinfo}</td>
-                                                ))
-                                            }
+                                            <td>{i}</td>
+                                            <td>{movies.movieid}</td>
+                                            <td>{movies.title}</td>
                                             <Button 
                                                 variant="danger"
                                                 onClick={(event) => {
@@ -75,7 +83,9 @@ export default function ManageMovies() {
                     </Container>
                 </Tab>
                 <Tab eventKey="Add" title="Add Movie">
-                    <AddMovie />
+                    <div className="addmovie-container">
+                        <AddMovie />
+                    </div>
                 </Tab>
             </Tabs>
 

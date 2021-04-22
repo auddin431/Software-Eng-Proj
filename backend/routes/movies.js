@@ -23,9 +23,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/nowshowing', function(req, res, next) {
-  console.log('11111111111111111111111111111')
-  Movie.find({},function(err,data){
-    console.log('2222222222222222222222222')
+  Movie.find({}, `movieid title`,function(err,data){
     if(data != null) {
       res.send(data);
     }

@@ -10,33 +10,20 @@ function MovieSelection() {
     const [movies, setMovies] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/movies/nowshowing',{
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        }).then((res) => res.json())
+        fetch('http://localhost:5000/movies/nowshowing')
+        .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             setMovies(data);
-            console.log(data[0]);
+            console.log(data);
         })
-
-            // result => {
-            //     console.log('33333333333333');
-            //     if (result.status === 200) {
-            //         setMovies(JSON.parse(result.json()));
-            //         console.log(movies);
-            //         console.log(result.json());
-            //     }
-            // }
-        //);
     }, []);
 
     return (
         <>
             <NavBar />
             <div className="movie-container">
-                {ids.map((movieid) => (
-                    <Movie key={movieid} data={movieid} />
+                {movies && movies.map((movie) => (
+                    <Movie key={movie.movieid} data={movie.movieid} />
                 ))}
             </div>
         </>
