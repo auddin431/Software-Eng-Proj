@@ -79,7 +79,7 @@ function getStepContent(step, response) {
     case 1:
       return <AddressForm />;
     case 2:
-      return <Review/>;
+      return <Review products={response}/>;
     default:
       throw new Error("Unknown step");
   }

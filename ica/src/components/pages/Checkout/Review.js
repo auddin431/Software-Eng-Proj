@@ -35,8 +35,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Review() {
+export default function Review(props) {
   const classes = useStyles();
+
+  var price = 0;
+  props.products.map((product) => {
+    var yes = parseFloat(product.price.slice(1));
+    price += yes;
+  });
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+  price = formatter.format(price);
+
 
   return (
     <React.Fragment>
@@ -44,16 +56,17 @@ export default function Review() {
         Order summary
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
-          <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
-          </ListItem>
+        {props.products &&
+          props.products.map((product) => (
+            <ListItem className={classes.listItem} key={product.name}>
+              <ListItemText primary={product.name} />
+              <Typography variant="body2">{product.price}</Typography>
+            </ListItem>
         ))}
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
-            $37.48
+            {price}
           </Typography>
         </ListItem>
       </List>
