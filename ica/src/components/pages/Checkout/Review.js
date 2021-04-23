@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import PaymentStripe from './PaymentStripe';
 
 const products = [
   { name: 'Avengers: Endgame', desc: 'One ticket', price: '$12.00' },
@@ -14,13 +15,14 @@ const products = [
 
 ];
 const addresses = ['1 Rutgers Way', 'Rutgersville', 'Rutgers', '12345', 'USA'];
+/*
 const payments = [
   { name: 'Card type', detail: 'Doge' },
   { name: 'Card holder', detail: 'John Reiner Sloan' },
   { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
   { name: 'Expiry date', detail: '06/1234' },
 ];
-
+*/
 const useStyles = makeStyles((theme) => ({
   listItem: {
     padding: theme.spacing(1, 0),
@@ -33,8 +35,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Review() {
+export default function Review(props) {
   const classes = useStyles();
+
+  var price = 0;
+  props.products.map((product) => {
+    var yes = parseFloat(product.price.slice(1));
+    price += yes;
+  });
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+  price = formatter.format(price);
+
 
   return (
     <React.Fragment>
@@ -42,16 +56,17 @@ export default function Review() {
         Order summary
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
-          <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
-          </ListItem>
+        {props.products &&
+          props.products.map((product) => (
+            <ListItem className={classes.listItem} key={product.name}>
+              <ListItemText primary={product.name} />
+              <Typography variant="body2">{product.price}</Typography>
+            </ListItem>
         ))}
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
-            $37.48
+            {price}
           </Typography>
         </ListItem>
       </List>
@@ -68,6 +83,7 @@ export default function Review() {
             Payment details
           </Typography>
           <Grid container>
+            {/*
             {payments.map((payment) => (
               <React.Fragment key={payment.name}>
                 <Grid item xs={6}>
@@ -78,6 +94,8 @@ export default function Review() {
                 </Grid>
               </React.Fragment>
             ))}
+            */}
+            <PaymentStripe/>
           </Grid>
         </Grid>
       </Grid>

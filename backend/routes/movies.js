@@ -22,11 +22,33 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/nowshowing', function(req, res, next) {
+  Movie.find({}, `movieid title`,function(err,data){
+    if(data != null) {
+      res.send(data);
+    }
+    if(err) {
+      console.log(err);
+    }
+  });
+});
+
+router.post('/deletemovie', function(req, res, next) {
+  Movie.deleteOne(req.body,function(err){
+    if(err) {
+      res.status(500).send("Error deleting movie, please try again.");
+      console.log(err);
+    } else {
+      res.status(200).send("Movie deleted successfully!");
+    }
+  })
+});
+
 /*
   Sets up a post route for registration. This will be the route used
   onClick when registering.
 */
-router.post('/register', function(req, res) {
+router.post('/addmovie', function(req, res) {
   console.log("Recived registration request...");
   const {movieid, title} = req.body;
   const movie = new Movie({movieid, title});

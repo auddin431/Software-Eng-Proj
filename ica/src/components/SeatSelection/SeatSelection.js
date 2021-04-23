@@ -69,6 +69,11 @@ const App = () => {
 
         </MovieContext.Provider>
       </div>
+        <div className="showtimes-flex">
+            <a href={"/Checkout"}>
+                <h3>Checkout</h3>
+            </a>
+        </div>
     </>
   );
 };

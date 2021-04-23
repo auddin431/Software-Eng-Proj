@@ -1,46 +1,46 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Paper from '@material-ui/core/Paper';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
-import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
-import Review from './Review';
-import Edit from './Edit';
-import NavBar from '../NavBar';
+import React, { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Paper from "@material-ui/core/Paper";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
+import AddressForm from "./AddressForm";
+import PaymentForm from "./PaymentForm";
+import Review from "./Review";
+import Edit from "./Edit";
+import NavBar from "../NavBar";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Not Copyright © '}
+      {"Not Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         ICA
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    position: 'relative',
+    position: "relative",
   },
   layout: {
-    width: 'auto',
+    width: "auto",
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
       width: 600,
-      marginLeft: 'auto',
-      marginRight: 'auto',
+      marginLeft: "auto",
+      marginRight: "auto",
     },
   },
   paper: {
@@ -57,8 +57,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3, 0, 5),
   },
   buttons: {
-    display: 'flex',
-    justifyContent: 'flex-end',
+    display: "flex",
+    justifyContent: "flex-end",
   },
   button: {
     marginTop: theme.spacing(3),
@@ -66,24 +66,57 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Edit your Order','Billing address', 'Payment details', 'Review your order'];
+const steps = [
+  "Edit your Order",
+  "Billing address",
+  "Review your order",
+];
 
-function getStepContent(step) {
+function getStepContent(step, response) {
   switch (step) {
     case 0:
-      return <Edit />
+      return <Edit products={response} />;
     case 1:
       return <AddressForm />;
     case 2:
-      return <PaymentForm />;
-    case 3:
-      return <Review />;
+      return <Review products={response}/>;
     default:
-      throw new Error('Unknown step');
+      throw new Error("Unknown step");
   }
 }
 
 export default function Checkout() {
+  var test2;
+  const [test, setTest] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/Checkout/", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((result) => {
+        if (result.status == 200) {
+          //this was originally equal to 200
+          result.json().then((res) => {
+            setTest(res.data);
+            //test2 = res.data.slice(0);
+            // res.data.map((el) => {
+            //   test2.push(el);
+            // });
+            //setTest(res.data)
+            //console.log(res);
+            //console.log(test2);
+          });
+        } else {
+          const error = new Error(result.error);
+          throw error;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        console.log("Failed");
+      });
+  }, []);
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -99,7 +132,7 @@ export default function Checkout() {
     <React.Fragment>
       <CssBaseline />
       <AppBar position="absolute" color="default" className={classes.appBar}>
-      <Toolbar>  
+        <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
             Integrated Cinema Automation
           </Typography>
@@ -124,13 +157,14 @@ export default function Checkout() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has confirmed. Estimated wait time ~10 minutes.
+                  Your order number is #2001539. We have emailed your order
+                  confirmation, and will send you an update when your order has
+                  confirmed. Estimated wait time ~10 minutes.
                 </Typography>
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {test && getStepContent(activeStep, test)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>
@@ -143,7 +177,7 @@ export default function Checkout() {
                     onClick={handleNext}
                     className={classes.button}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? "Place order" : "Next"}
                   </Button>
                 </div>
               </React.Fragment>

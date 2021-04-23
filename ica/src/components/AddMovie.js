@@ -10,7 +10,7 @@ export default function AddMovie(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        fetch('http://localhost:5000/movies/register', {
+        fetch('http://localhost:5000/movies/addmovie', {
           method: 'POST',
           body: JSON.stringify({
             movieid: movieid,

@@ -30,3 +30,26 @@
   text-align: left;
   font-size: 20px;
 }
+
+.APF-container {
+  width: 550px;
+  margin: auto;
+  text-align: left;
+  font-size: 20px;
+}
+
+.APF-Submit{
+  color: black;
+  background-color: white;
+  font-size: 20px;
+  height:2em;
+  width: 100px;
+  
+}
+
+.APE-container {
+  width: 80px;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+}
