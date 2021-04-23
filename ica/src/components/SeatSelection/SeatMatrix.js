@@ -6,7 +6,7 @@ const GenerateSeats = (seatNumbers) => {
   return (
     <div className="row">
       {seatNumbers.map((seatNumber) => {
-        return <Seat seatno={seatNumber} />;
+        return <Seat seatno={seatNumber} key = {seatNumber}/>;
       })}
     </div>
   );
@@ -15,7 +15,7 @@ const GenerateSeats = (seatNumbers) => {
 const SeatMatrix = () => {
   return (
     <div className="movie-complex">
-      <div class="screen"></div>
+      <div className="screen"></div>
       <div className="container row movie-layout">
         <div className="movie-column-1">
           {GenerateSeats(["A1", "A2"])}

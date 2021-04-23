@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import PaymentStripe from './PaymentStripe';
+
 
 const products = [
   { name: 'Avengers: Endgame', desc: 'One ticket', price: '$12.00' },
@@ -43,12 +44,39 @@ export default function Review(props) {
     var yes = parseFloat(product.price.slice(1));
     price += yes;
   });
+
+  const [tickets, setTickets] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/SeatSelection/", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((result) => {
+        if (result.status == 200) {
+          result.json().then((res) => {
+            setTickets(res.data);
+          });
+        } else {
+          const error = new Error(result.error);
+          throw error;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        console.log("Failed");
+      });
+  }, []);
+
+  tickets.map((ticket) => {
+    var yes = ticket.moviePrice*ticket.totalSeats;
+    price += yes;
+  });
+
   var formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   });
   price = formatter.format(price);
-
 
   return (
     <React.Fragment>
@@ -56,6 +84,13 @@ export default function Review(props) {
         Order summary
       </Typography>
       <List disablePadding>
+      {tickets &&
+          tickets.map((ticket, index) => (
+            <ListItem className={classes.listItem} key={index}>
+              <ListItemText primary="Movie Tickets" secondary={ticket.seatNumbers.join(", ")}/>
+              <Typography variant="body2">${ticket.moviePrice*ticket.totalSeats}.00</Typography>
+            </ListItem>
+        ))}
         {props.products &&
           props.products.map((product) => (
             <ListItem className={classes.listItem} key={product.name}>

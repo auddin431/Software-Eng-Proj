@@ -13,30 +13,32 @@ export default function TicketPurchases() {
 
   const purchase = [
     {
-      date: "2021-04-22",
+      date: "2021-04-25",
       movie: "Movie 1",
       quantity: 1,
       id: "12345"
     },
     {
-      date: "2021-04-23",
+      date: "2021-04-24",
       movie: "Movie 2",
       quantity: 2,
       id: "23456"
     },
     {
-      date: "2021-04-24",
+      date: "2021-04-23",
       movie: "Movie 3",
       quantity: 3,
       id: "34567"
     },
     {
-      date: "2021-04-25",
+      date: "2021-04-22",
       movie: "Movie 4",
       quantity: 4,
       id: "https://cdn.discordapp.com/attachments/823649533245521950/834945488444194836/Croco2.png"
     }
 ]
+
+
 
   return (
     <>

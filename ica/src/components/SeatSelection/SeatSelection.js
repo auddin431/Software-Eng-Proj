@@ -31,6 +31,22 @@ const App = () => {
     totalSeats: 0,
     seatNumbers: [],
   });
+  
+const addToCart = (movies) => {
+    
+    const postDatabase = async (seat) => {
+        const reqOptions = {
+            method: "POST",
+            headers: {
+               Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(seat)
+         }
+        let response = await fetch("http://localhost:5000/SeatSelection/addSeats", reqOptions);
+    }
+    postDatabase(movies)
+};
 
   return (
     <>
@@ -46,8 +62,12 @@ const App = () => {
         </MovieContext.Provider>
       </div>
         <div className="showtimes-flex">
-            <a href={"/Checkout"}>
+            <a onClick={() => addToCart(movies)} href={"/Checkout"}>
                 <h3>Checkout</h3>
+            </a>
+       
+            <a onClick={() => addToCart(movies)} href={"/FoodSelection"}>
+                <h3>Buy Food</h3>
             </a>
         </div>
     </>

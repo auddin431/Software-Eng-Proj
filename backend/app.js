@@ -11,6 +11,7 @@ var testAPIRouter = require("./routes/testAPI");
 var testPostRouter = require("./routes/testPost");
 var moviesRouter = require("./routes/movies");
 var checkoutRouter = require("./routes/Checkout");
+var seatRouter = require("./routes/SeatSelection");
 var app = express();
 require('dotenv').config();
 
@@ -33,6 +34,7 @@ app.use("/testAPI", testAPIRouter);
 app.use("/testPost", testPostRouter);
 app.use("/movies", moviesRouter);
 app.use("/Checkout", checkoutRouter);
+app.use("/SeatSelection", seatRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

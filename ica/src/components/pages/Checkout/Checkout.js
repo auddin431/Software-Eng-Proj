@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const steps = [
-  "Edit your Order",
+  "Edit your order",
   "Billing address",
   "Review your order",
 ];
@@ -86,8 +86,8 @@ function getStepContent(step, response) {
 }
 
 export default function Checkout() {
-  var test2;
-  const [test, setTest] = useState([]);
+
+  const [order, setOrder] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/Checkout/", {
       method: "GET",
@@ -95,16 +95,8 @@ export default function Checkout() {
     })
       .then((result) => {
         if (result.status == 200) {
-          //this was originally equal to 200
           result.json().then((res) => {
-            setTest(res.data);
-            //test2 = res.data.slice(0);
-            // res.data.map((el) => {
-            //   test2.push(el);
-            // });
-            //setTest(res.data)
-            //console.log(res);
-            //console.log(test2);
+            setOrder(res.data);
           });
         } else {
           const error = new Error(result.error);
@@ -157,14 +149,16 @@ export default function Checkout() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order
-                  confirmation, and will send you an update when your order has
-                  confirmed. Estimated wait time ~10 minutes.
+                  Your order number is #2001539. We have generated your QR code.
+                  {" "}
+                  <Link color="inherit" href="/TicketPurchases">
+                    Click here to view it.
+                  </Link>
                 </Typography>
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {test && getStepContent(activeStep, test)}
+                {order && getStepContent(activeStep, order)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>
