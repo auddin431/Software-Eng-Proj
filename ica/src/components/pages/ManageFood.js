@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import NavBar from "./NavBar";
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
@@ -16,6 +16,52 @@ export default function ManageFood() {
         ["Water","$2.50","100"],
         ["Coke", "$2.50","100"]
     ]
+
+    const [food, setFood] = useState([]);
+    useEffect(() => {
+    fetch("http://localhost:5000/ManageFood/addFood", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((result) => {
+        if (result.status == 200) {
+          result.json().then((res) => {
+            setFood(res.data);
+          });
+        } else {
+          const error = new Error(result.error);
+          throw error;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        console.log("Failed");
+      });
+  }, []);
+
+  const delFood = (foods) => {
+    
+    const postDatabase = async (food) => {
+      
+      fetch('http://localhost:5000/ManageFood/delFood', {
+        method: 'POST',
+        body: JSON.stringify({food}),
+        headers: {'Content-Type': 'application/json'}
+      }).then(result => {
+        if(result.status === 200) {
+          console.log("Deleted!");
+        } else {
+          const error = new Error(result.error);
+          throw error;
+        }
+      }).catch(error => {
+        console.error(error);
+        console.log("Failed to delete.");
+      });
+    
+    }
+    postDatabase(foods)
+  };
 
 
     return (
@@ -36,15 +82,15 @@ export default function ManageFood() {
                             </thead>
                             <tbody>
                                 {
-                                    table.map((food,i) =>(
+                                    food && food.map((foods,i) =>(
                                         <tr key={i}>
-                                            <th>{i}</th>
-                                            {
-                                                food.map((foodinfo,j) => (
-                                                    <td key={j}>{foodinfo}</td>
-                                                ))
-                                            }
-                                            <Button variant="danger">Remove Food</Button>
+                                            <td>{i}</td>
+                                            <td>{foods.food}</td>
+                                            <td>{foods.price}</td>
+                                            <td>{foods.count}</td>
+                                            <Button onClick={() => delFood(foods)} href="/ManageFood">
+                                                Remove Food
+                                            </Button>
                                         </tr>
                                     ))
                                 }

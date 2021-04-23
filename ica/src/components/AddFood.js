@@ -10,7 +10,7 @@ export default function AddFood(props) {
     const [count,setCount]=useState('');
     function handleSubmit(event) {
         event.preventDefault();
-        fetch('http://localhost:5000/food/ManageFood', {
+        fetch('http://localhost:5000/ManageFood', {
           method: 'POST',
           body: JSON.stringify({
             food:food,
@@ -76,7 +76,7 @@ export default function AddFood(props) {
                     <Button 
                         type="submit" 
                         className="mb-2"
-                        onClick={handleSubmit}
+                        onClick={handleSubmit }
                     >
                         Add Food
                     </Button>
