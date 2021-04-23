@@ -27,32 +27,38 @@ const App = () => {
   }, []);
 
   const [movies, EditMovies] = useState({
+    movieTitle: "Movie Title",
     moviePrice: 12,
     totalSeats: 0,
     seatNumbers: [],
   });
-  
-const addToCart = (movies) => {
-    
+
+  const addToCart = (movies) => {
+    //EditMovies({ ...movies, movieTitle: movie.title });
     const postDatabase = async (seat) => {
-        const reqOptions = {
-            method: "POST",
-            headers: {
-               Accept: "application/json",
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(seat)
-         }
-        let response = await fetch("http://localhost:5000/SeatSelection/addSeats", reqOptions);
-    }
-    postDatabase(movies)
-};
+      const reqOptions = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(seat),
+      };
+      let response = await fetch(
+        "http://localhost:5000/SeatSelection/addSeats",
+        reqOptions
+      );
+    };
+    postDatabase(movies);
+  };
 
   return (
     <>
       <NavBar />
       <div className="main container">
-        <MovieContext.Provider value={{ movies, changeState: EditMovies }}>
+        <MovieContext.Provider
+          value={{ movies, changeState: EditMovies, movieInfo: movie && movie }}
+        >
           <h1>{movie.title}</h1>
           <h5>$12 per ticket</h5>
           {/*<MovieSelector />*/}
@@ -61,15 +67,15 @@ const addToCart = (movies) => {
           <PriceCalculator />
         </MovieContext.Provider>
       </div>
-        <div className="showtimes-flex">
-            <a onClick={() => addToCart(movies)} href={"/Checkout"}>
-                <h3>Checkout</h3>
-            </a>
-       
-            <a onClick={() => addToCart(movies)} href={"/FoodSelection"}>
-                <h3>Buy Food</h3>
-            </a>
-        </div>
+      <div className="showtimes-flex">
+        <a onClick={() => addToCart(movies)} href={"/Checkout"}>
+          <h3>Checkout</h3>
+        </a>
+
+        <a onClick={() => addToCart(movies)} href={"/FoodSelection"}>
+          <h3>Buy Food</h3>
+        </a>
+      </div>
     </>
   );
 };

@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Grid from '@material-ui/core/Grid';
-import PaymentStripe from './PaymentStripe';
-
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Grid from "@material-ui/core/Grid";
+import PaymentStripe from "./PaymentStripe";
 
 const products = [
-  { name: 'Avengers: Endgame', desc: 'One ticket', price: '$12.00' },
-  { name: 'Appetizer: Ultimate Nachos', desc: 'Crispy tortilla chips, topped with seasoned chicken, cheese, Pico de Gallo, and other favorite nacho toppings', price: '$10.99' },
-  { name: 'Entree: Spaghetti & Meatballs', desc: 'Perfectly cooked spaghetti topped with tangy tomato sauce pairs with our seasoned Italian meatballs', price: '$11.99' },
-  { name: 'Drink: Coca-Cola', desc: 'Classic Coke flavor that is refreshing', price: '$2.50' },
-
+  { name: "Avengers: Endgame", desc: "One ticket", price: "$12.00" },
+  {
+    name: "Appetizer: Ultimate Nachos",
+    desc:
+      "Crispy tortilla chips, topped with seasoned chicken, cheese, Pico de Gallo, and other favorite nacho toppings",
+    price: "$10.99",
+  },
+  {
+    name: "Entree: Spaghetti & Meatballs",
+    desc:
+      "Perfectly cooked spaghetti topped with tangy tomato sauce pairs with our seasoned Italian meatballs",
+    price: "$11.99",
+  },
+  {
+    name: "Drink: Coca-Cola",
+    desc: "Classic Coke flavor that is refreshing",
+    price: "$2.50",
+  },
 ];
-const addresses = ['1 Rutgers Way', 'Rutgersville', 'Rutgers', '12345', 'USA'];
+const addresses = ["1 Rutgers Way", "Rutgersville", "Rutgers", "12345", "USA"];
 /*
 const payments = [
   { name: 'Card type', detail: 'Doge' },
@@ -68,13 +80,13 @@ export default function Review(props) {
   }, []);
 
   tickets.map((ticket) => {
-    var yes = ticket.moviePrice*ticket.totalSeats;
+    var yes = ticket.moviePrice * ticket.totalSeats;
     price += yes;
   });
 
-  var formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   });
   price = formatter.format(price);
 
@@ -84,20 +96,25 @@ export default function Review(props) {
         Order summary
       </Typography>
       <List disablePadding>
-      {tickets &&
+        {tickets &&
           tickets.map((ticket, index) => (
             <ListItem className={classes.listItem} key={index}>
-              <ListItemText primary="Movie Tickets" secondary={ticket.seatNumbers.join(", ")}/>
-              <Typography variant="body2">${ticket.moviePrice*ticket.totalSeats}.00</Typography>
+              <ListItemText
+                primary={ticket.movieTitle}
+                secondary={ticket.seatNumbers.join(", ")}
+              />
+              <Typography variant="body2">
+                ${ticket.moviePrice * ticket.totalSeats}.00
+              </Typography>
             </ListItem>
-        ))}
+          ))}
         {props.products &&
           props.products.map((product) => (
             <ListItem className={classes.listItem} key={product.name}>
               <ListItemText primary={product.name} />
               <Typography variant="body2">{product.price}</Typography>
             </ListItem>
-        ))}
+          ))}
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
@@ -111,7 +128,7 @@ export default function Review(props) {
             Billing
           </Typography>
           <Typography gutterBottom>John Reiner Sloan</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
+          <Typography gutterBottom>{addresses.join(", ")}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
@@ -130,7 +147,7 @@ export default function Review(props) {
               </React.Fragment>
             ))}
             */}
-            <PaymentStripe/>
+            <PaymentStripe />
           </Grid>
         </Grid>
       </Grid>
