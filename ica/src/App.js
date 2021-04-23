@@ -22,7 +22,7 @@ function App() {
     <div>
       <Route exact path="/SignIn" component={SignIn}></Route>
       <Route exact path="/SignUp" component={SignUp}></Route>
-      <Route exact path="/" component={Home}></Route>
+      <Route exact path="/" component={MovieSelection}></Route>
       <Route exact path="/MovieSelection" component={MovieSelection}></Route>
       <Route exact path="/MoviePage" component={MoviePage}></Route>
       <Route exact path="/FoodSelection" component={FoodSelection}></Route>

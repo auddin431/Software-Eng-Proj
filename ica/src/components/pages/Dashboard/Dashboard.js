@@ -26,9 +26,9 @@ import Orders from './Orders';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      {'Not Copyright © '}
+      <Link color="inherit" href="/">
+        ICA
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

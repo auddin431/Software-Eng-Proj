@@ -7,6 +7,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import AddMovie from '../AddMovie';
 import './ManageMovies.css';
+import Dashboard from './Dashboard/Dashboard';
 
 export default function ManageMovies() {
     const table = [
@@ -53,12 +54,12 @@ export default function ManageMovies() {
                                             <Button 
                                                 variant="danger"
                                                 onClick={(event) => {
-                                                    console.log(movies);
+                                                    console.log(movies.movieid);
                                                     event.preventDefault();
                                                     fetch('http://localhost:5000/movies/deletemovie', {
                                                       method: 'POST',
                                                       body: JSON.stringify({
-                                                        movieid: movies[0]}),
+                                                        movieid: movies.movieid}),
                                                       headers: {'Content-Type': 'application/json'}
                                                     }).then(result => {
                                                       if(result.status === 200) {
@@ -71,8 +72,9 @@ export default function ManageMovies() {
                                                       console.error(error);
                                                       console.log("Failed to deleted.");
                                                     });
+                                                    window.location.reload(false);
                                                   }}
-                                            >
+                        href="/ManageMovies">
                                                 Remove Movie
                                             </Button>
                                         </tr>
@@ -85,6 +87,11 @@ export default function ManageMovies() {
                 <Tab eventKey="Add" title="Add Movie">
                     <div className="addmovie-container">
                         <AddMovie />
+                    </div>
+                </Tab>
+                <Tab eventKey="Data" title="View Analytics">
+                    <div classname="view-analytics">
+                        <Dashboard />
                     </div>
                 </Tab>
             </Tabs>
