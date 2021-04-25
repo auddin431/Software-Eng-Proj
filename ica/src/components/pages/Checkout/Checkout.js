@@ -149,7 +149,7 @@ export default function Checkout() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have generated your QR code.
+                  Your order number is #2001539 and it will be ready in about ~10 minutes. We have generated your QR code.
                   {" "}
                   <Link color="inherit" href="/TicketPurchases">
                     Click here to view it.
