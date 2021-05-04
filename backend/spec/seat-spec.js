@@ -20,33 +20,31 @@ async function asyncCall() {
     console.log(result);
 }
 
-describe("User Account Functionality", function() {
+describe("Seat Selection Functionality", function() {
     beforeAll(async function() {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000000;
         await asyncCall();
     });
 
-    describe("/POST User Account Creation", function() {
-        it("creates an account", function() {
-            chai.request(backend).post('/users/register').send({
-                first_name: "_test_first_name_",
-                last_name: "_test_last_name_",
-                email: "_test_email______",
-                password: "_test_pass_"
+    describe("/POST Add Seats", function() {
+        it("registers a seat", function() {
+            chai.request(backend).post('/SeatSelection/addSeats').send({
+                movieTitle: "_test_movie_title_",
+                moviePrice: 12,
+                totalSeats: 1,
+                seatNumbers: "_test_seat_numbers_"
             }).end(function(err, res) {
                 expect(res.status).toBe(200);
                 if(err) return err;
             });
         });
     });
-    describe("/POST Authenticate User", function() {
-        it("authenticates an account", function() {
-            let auth = {
-                email: "_test_email_",
-                password: "_test_pass_"
-            }
-            chai.request(backend).post('/users/authenticate').send(auth).end(function(err, res) {
+    
+    describe("/GET Return All Seats", function() {
+        it("returns all seats", function() {
+            chai.request(backend).get('/SeatSelection').end(function(err, res) {
                 expect(res.status).toBe(200);
+                console.log(res.body);
             });
         });
     });

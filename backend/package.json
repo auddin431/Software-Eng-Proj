@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "./node_modules/.bin/jasmine-node spec"
+    "test": "./node_modules/.bin/jasmine"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -18,14 +18,13 @@
     "express": "^4.16.4",
     "http-errors": "^1.6.3",
     "jade": "^0.29.0",
-    "jasmine": "^3.7.0",
-    "jasmine-node": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.2",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "jasmine": "^3.7.0",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.7"
   }
